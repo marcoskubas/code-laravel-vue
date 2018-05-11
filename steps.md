@@ -25,3 +25,24 @@ GRANT ALL PRIVILEGES ON * . * TO 'homestead'@'localhost';
 php artisan app:name CodeLaravelVue
 
 ```
+
+## CRIANDO USUÁRIOS ADMINISTRATIVOS
+
+```
+php artisan migrate
+
+php artisan make:migration --table=users add_role_to_users_table
+
+php artisan migrate
+
+php artisan make:seeder UsersTableSeeder
+
+php artisan db:seed
+
+php artisan tinker
+
+>> \CodeLaravelVue\User::all();
+
+>> exit
+
+```
