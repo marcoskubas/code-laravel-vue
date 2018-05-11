@@ -45,4 +45,13 @@ php artisan tinker
 
 >> exit
 
+php artisan migrate:refresh --seed #Refaz as migrations
+
+```
+
+## CRIANDO AUTENTICAÇÃO
+
+```
+php artisan make:auth
+
 ```
