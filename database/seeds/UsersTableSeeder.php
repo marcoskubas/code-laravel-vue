@@ -12,5 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(CodeLaravelVue\User::class, 1)->states('admin')->create(['name' => 'Marcos Kubas', 'email' => 'admin@user.com']);
+
+        factory(CodeLaravelVue\User::class, 1)->create(['name' => 'Client', 'email' => 'client@user.com']);
     }
 }

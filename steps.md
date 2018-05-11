@@ -55,3 +55,12 @@ php artisan migrate:refresh --seed #Refaz as migrations
 php artisan make:auth
 
 ```
+
+## CRIANDO LOGIN E LOGOUT PARA ADMINS
+
+```
+php artisan migrate:refresh --seed
+
+php artisan serve #restart server para pegar variáveis de ambiente
+
+```
