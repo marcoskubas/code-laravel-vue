@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace CodeLaravelVue\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

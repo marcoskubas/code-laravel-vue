@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace CodeLaravelVue\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use CodeLaravelVue\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller

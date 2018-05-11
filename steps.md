@@ -15,3 +15,13 @@ DISPONIBILIZA NA PORTA 8000 DA VM DO VAGRANT
 php artisan serve --host=0.0.0.0
 
 ```
+
+CREATE USER 'homestead'@'localhost' IDENTIFIED BY 'secret';
+GRANT ALL PRIVILEGES ON * . * TO 'homestead'@'localhost';
+
+## ALTERANDO NAMESPACE DA APLICAÇÃO
+
+```
+php artisan app:name CodeLaravelVue
+
+```
