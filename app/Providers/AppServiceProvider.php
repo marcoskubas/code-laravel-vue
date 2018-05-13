@@ -2,6 +2,8 @@
 
 namespace CodeLaravelVue\Providers;
 
+use CodeLaravelVue\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Gate::define('access-admin', function($user){
+            return $user->role == User::ROLE_ADMIN;
+        });
     }
 
     /**

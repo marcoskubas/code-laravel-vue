@@ -64,3 +64,9 @@ php artisan migrate:refresh --seed
 php artisan serve #restart server para pegar variáveis de ambiente
 
 ```
+
+## HABILIDADE PARA VERIFICAR ADMINS
+
+```
+
+```
