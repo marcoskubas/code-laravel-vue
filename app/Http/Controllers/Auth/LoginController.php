@@ -58,7 +58,7 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('/login');
+        return redirect('/admin/login');
         // return redirect(env('USER_ADMIN_LOGIN'));
     }
 }
