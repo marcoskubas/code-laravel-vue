@@ -65,8 +65,9 @@ php artisan serve #restart server para pegar variáveis de ambiente
 
 ```
 
-## HABILIDADE PARA VERIFICAR ADMINS
+## PROTEGENDO ROTAS ADMIN
 
 ```
+php artisan route:list
 
 ```

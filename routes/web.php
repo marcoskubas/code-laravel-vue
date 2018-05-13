@@ -13,15 +13,24 @@ use Illuminate\Support\Facades\Gate;
 |
 */
 
+Route::get('/user', function () {
+	\Illuminate\Suporte\Facades\Auth::LoginUsingId(2);
+});
+
 Route::get('/', function () {
-	if(Gate::allows('access-admin')){
-		return "Usuário com permissão de admin";
-	}else{
-		return "Usuário sem permissão de admin";
-	}
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', function(){
+	return redirect()->route('admin.home');
+});
+
+Route::group([
+		'prefix'     => 'admin', 
+		'middleware' => 'can:access-admin', 
+		'as'         => 'admin.'
+], function(){
+	Route::get('/home', 'HomeController@index')->name('home');
+});
