@@ -84,3 +84,7 @@ npm install laravel-elixir-vue@^0.1.4 --no-bin-link
 npm install --no-bin-link
 
 ```
+
+## LARAVEL EXLIXIR
+
+https://laravel.com/docs/5.3/elixir
