@@ -92,3 +92,10 @@ https://laravel.com/docs/5.3/elixir
 ## ASSETS PARA ADMIN
 
 Diretório > resources
+
+## COMPILANDO SASS DO ADMIN
+
+```
+gulp
+
+```
