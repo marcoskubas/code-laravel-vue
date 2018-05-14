@@ -88,3 +88,7 @@ npm install --no-bin-link
 ## LARAVEL EXLIXIR
 
 https://laravel.com/docs/5.3/elixir
+
+## ASSETS PARA ADMIN
+
+Diretório > resources
