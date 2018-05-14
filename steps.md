@@ -1,4 +1,4 @@
-# AUTH DA ÁREA ADMINISTRATIVA
+# 01 - AUTH DA ÁREA ADMINISTRATIVA
 
 ## CRIANDO APLICAÇÃO LARAVEL
 
@@ -69,5 +69,18 @@ php artisan serve #restart server para pegar variáveis de ambiente
 
 ```
 php artisan route:list
+
+```
+
+# 02 - CONFIGURAÇÃO DO WEBPACK
+
+## INSTALANDO DEPENDÊNCIAS DO PACKAGE.JSON
+
+```
+npm install laravel-elixir@^6.0.0-9 --no-bin-link
+
+npm install laravel-elixir-vue@^0.1.4 --no-bin-link
+
+npm install --no-bin-link
 
 ```
