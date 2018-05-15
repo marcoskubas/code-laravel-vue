@@ -99,3 +99,19 @@ Diretório > resources
 gulp
 
 ```
+
+## CONFIGURANDO BROWSER SYNC
+
+```
+npm install laravel-elixir-browsersync-official@^1.0.0 --no-bin-link --save-dev
+
+gulp watch
+
+```
+
+## WEBPBACK.CONFIG.JS
+
+```
+
+
+```
