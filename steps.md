@@ -122,3 +122,14 @@ npm install webpack-dev-server@^1.16.2 webpack@^1.13.2 --no-bin-link --save
 gulp watch
 
 ```
+
+## CONFIGURANDO INLINE E HOT DO WEBPACK-DEV-SERVER
+
+```
+npm install bootstrap-sass --no-bin-link --save
+
+npm install jquery --no-bin-link --save
+
+gulp watch
+
+```
