@@ -112,7 +112,7 @@ gulp watch
 ## CONFIGURAÇÃO DO WEBPACK-DEV-SERVER
 
 ```
-npm install webpack-dev-server@^1.16.2 webpack@^1.13.2 --no-bin-link --save
+npm install webpack-dev-server@^1.16.2 webpack@^1.13.2 --no-bin-link --save-dev
 
 ```
 
@@ -126,10 +126,16 @@ gulp watch
 ## CONFIGURANDO INLINE E HOT DO WEBPACK-DEV-SERVER
 
 ```
-npm install bootstrap-sass --no-bin-link --save
+npm install bootstrap-sass --no-bin-link --save-dev
 
-npm install jquery --no-bin-link --save
+npm install jquery --no-bin-link --save-dev
 
 gulp watch
+
+```
+## WEBPACK MERGE
+
+```
+npm install webpack-merge@^0.14.1 --save-dev
 
 ```
