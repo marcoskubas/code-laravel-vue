@@ -13,7 +13,7 @@
 		</li>
 	</ul>
 	<div class="navbar-fixed">
-		<nav class="teal">
+		<nav>
 			<div class="nav-wrapper">
 				<div class="col s12">
 					<a href="#" class="left brand-logo">Laravel Vue Admin</a>
