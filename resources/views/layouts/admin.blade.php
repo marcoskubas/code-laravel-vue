@@ -22,6 +22,29 @@
 </head>
 <body>
     <div id="app">
+    
+        @if (Auth::check())
+        <?php 
+        $menuConfig = [
+            'name'  => Auth::user()->name,
+            'menus' => [
+                ['name' => 'Contas a pagar', 'url' => '/teste', 'dropdownId' => 'teste'],
+                ['name' => 'Contas a receber', 'url' => '/teste1']
+            ],
+            'menusDropdown' => [
+                [
+                    'id' => 'teste', 
+                    'items' => [
+                        ['name' => 'Listar Contas', 'url' => '/lista'],
+                        ['name' => 'Criar Conta', 'url' => '/criar']
+                    ]
+                ]
+            ]
+        ];
+        ?>
+        <admin-menu :config="{{ json_encode($menuConfig) }}"></admin-menu>
+        @endif
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
