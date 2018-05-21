@@ -5,6 +5,7 @@ namespace CodeLaravelVue\Http\Controllers\Api;
 use CodeLaravelVue\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,13 +16,15 @@ class AuthController extends Controller
 
         $credentials = $this->credentials($request);
 
-        if($token == Auth::guard('api')->attempt($credentials)){
+        if($token = Auth::guard('api')->attempt($credentials)){
             return $this->sendLoginResponse($request, $token);
         }
     }
 
     protected function sendLoginResponse(Request $request, $token){
-
+        return response()->json([
+            'token' => $token
+        ]);
     }
 
     /**
