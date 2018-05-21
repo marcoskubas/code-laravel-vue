@@ -139,3 +139,18 @@ gulp watch
 npm install webpack-merge@^0.14.1 --save-dev
 
 ```
+
+# 04 - AUTENTICAÇÃO COM JWT
+
+## INTEGRAÇÃO COM JWT-AUTH
+
+(https://github.com/tymondesigns/jwt-auth)[https://github.com/tymondesigns/jwt-auth]
+
+```
+composer require tymon/jwt-auth:dev-develop
+
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+php artisan jwt:secret
+
+```
