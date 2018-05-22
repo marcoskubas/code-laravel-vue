@@ -89,15 +89,9 @@ class AuthController extends Controller
      * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    protected function logout(Request $request)
+    public function logout()
     {
-        $this->guard()->logout();
-
-        $request->session()->flush();
-
-        $request->session()->regenerate();
-
-        return redirect('/admin/login');
-        // return redirect(env('USER_ADMIN_LOGIN'));
+        Auth::guard('api')->logout();
+        return response()->json([], 204); //No Content
     }
 }
