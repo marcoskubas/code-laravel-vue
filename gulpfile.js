@@ -33,7 +33,8 @@ Elixir.webpack.mergeConfig(webpackDevConfig);*/
 		'webpack-dev-server/client?http://0.0.0.0:8080'
 	];
 
-	config.entry.admin = [config.entry.admin].concat(inlineHot);
+    config.entry.admin = [config.entry.admin].concat(inlineHot);
+    config.entry.spa   = [config.entry.spa].concat(inlineHot);
 
  	new WebpackDevServer(webpack(config), {
  		hot   : true,
@@ -54,7 +55,9 @@ Elixir.webpack.mergeConfig(webpackDevConfig);*/
 
 elixir((mix) => {
     mix.sass('./resources/assets/admin/sass/admin.scss')
+        .sass('./resources/assets/spa/sass/spa.scss')
     	.copy('./node_modules/materialize-css/fonts/roboto', './public/fonts/roboto');
+
 
     gulp.start('webpack-dev-server');
 
