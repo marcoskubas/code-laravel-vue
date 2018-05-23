@@ -19,3 +19,9 @@ window.Vue = require('vue');
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+Vue.component('app', require('./components/App.vue'));
+
+const app = new Vue({
+    el: 'body'
+});
