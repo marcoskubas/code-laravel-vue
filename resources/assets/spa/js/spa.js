@@ -1,3 +1,6 @@
+import LoginComponent from './components/Login.vue';
+import AppComponent from './components/App.vue';
+
 require('materialize-css');
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -7,21 +10,18 @@ require('materialize-css');
 
 window.Vue = require('vue');
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
+let VueRouter = require('vue-router');
+const router  = new VueRouter;
 
-// import Echo from "laravel-echo"
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
-
-Vue.component('app', require('./components/App.vue'));
-
-const app = new Vue({
-    el: 'body'
+router.map({
+	'/login' : {
+		name : 'auth.login',
+		component : LoginComponent
+	}
 });
+
+router.start({
+	components : {
+		'app' : AppComponent
+	}
+}, 'body');

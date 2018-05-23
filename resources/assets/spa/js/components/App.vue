@@ -2,7 +2,9 @@
 	<div id="app">
         <header></header>
 
-        <main></main>
+        <main>
+        	<router-view></router-view>
+        </main>
 
         <footer class="page-footer">
             <div class="footer-copyfight">
