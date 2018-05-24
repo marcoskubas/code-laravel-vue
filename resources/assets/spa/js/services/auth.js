@@ -1,4 +1,4 @@
-import Jwt from './resources';
+import {Jwt} from './resources';
 import LocalStorage from './localStorage';
 
 export default {
