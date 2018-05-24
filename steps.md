@@ -154,3 +154,17 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServicePro
 php artisan jwt:secret
 
 ```
+
+# 04 - INICIANDO SPA
+
+## INTEGRAÇÃO COM LARAVEL-CORS
+
+https://github.com/barryvdh/laravel-cors
+
+```
+
+composer require barryvdh/laravel-cors
+
+php artisan vendor:publish --provider="Barryvdh\Cors\ServiceProvider"
+
+```
