@@ -168,3 +168,10 @@ composer require barryvdh/laravel-cors
 php artisan vendor:publish --provider="Barryvdh\Cors\ServiceProvider"
 
 ```
+
+## ERRATA SOBRE CORS
+
+```
+composer update laravel/framework
+
+```
