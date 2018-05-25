@@ -183,3 +183,10 @@ composer update laravel/framework
 ```
 php artisan route:list
 ```
+
+## LEITURA DE VARIÁVEIS DE AMBIENTE
+
+```
+npm install gulp-env@^0.4.0 --save-dev --no-bin-link
+
+```
