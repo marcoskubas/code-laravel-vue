@@ -178,3 +178,8 @@ composer update laravel/framework
 
 # 06 - AUTENTICAÇÃO NO SPA
 
+## ORGANIZANDO ROTAS DA API
+
+```
+php artisan route:list
+```
