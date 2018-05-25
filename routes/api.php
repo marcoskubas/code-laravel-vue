@@ -13,11 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');*/
-
-// Route::group(['middleware' => 'cors'], function(){
+Route::group(['middleware' => 'cors'], function(){
 
 	Route::post('/access_token', 'Api\AuthController@accessToken');
 	Route::post('/refresh_token', 'Api\AuthController@refreshToken');
@@ -29,5 +25,11 @@ use Illuminate\Http\Request;
 	    ]);
 	})->middleware('auth:api');
 
-// });
+	Route::get('/user', function(Request $request){
+		// $user = Auth::guard('api')->user();
+		$user = $request->user('api');
+		return $user;
+	})->middleware('auth:api');
+
+});
 

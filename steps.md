@@ -155,7 +155,7 @@ php artisan jwt:secret
 
 ```
 
-# 04 - INICIANDO SPA
+# 05 - INICIANDO SPA
 
 ## INTEGRAÇÃO COM LARAVEL-CORS
 
@@ -175,3 +175,6 @@ php artisan vendor:publish --provider="Barryvdh\Cors\ServiceProvider"
 composer update laravel/framework
 
 ```
+
+# 06 - AUTENTICAÇÃO NO SPA
+
