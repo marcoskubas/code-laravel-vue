@@ -190,3 +190,12 @@ php artisan route:list
 npm install gulp-env@^0.4.0 --save-dev --no-bin-link
 
 ```
+
+## CRIANDO CONFIGURAÇÕES DO SPA
+
+```
+npm install stringify-object@^3.0.0 --save-dev --no-bin-link
+
+npm install gulp-file@^0.3.0 --save-dev --no-bin-link
+
+```
