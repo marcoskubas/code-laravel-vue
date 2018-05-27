@@ -75,8 +75,7 @@ elixir((mix) => {
         .sass('./resources/assets/spa/sass/spa.scss')
     	.copy('./node_modules/materialize-css/fonts/roboto', './public/fonts/roboto');
 
-
-    gulp.start('webpack-dev-server');
+    gulp.start('spa-config', 'webpack-dev-server');
 
     mix.browserSync({
     	host 	: '0.0.0.0',
