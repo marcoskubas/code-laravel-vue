@@ -6,4 +6,5 @@ window.Vue = require('vue');
 require('vue-resource');
 Vue.http.options.root = AppConfig.api_url;
 
+require('./services/interceptors');
 require('./router');
