@@ -58,7 +58,10 @@
         methods : {
             login(){;
                 Auth.login(this.user.email, this.user.password)
-                .then(() => this.$router.go({name: 'dashboard'}))
+                .then(() => {
+                    console.log('dashboard');
+                    this.$router.go({name: 'dashboard'});
+                })
                 .catch((responseError) => {
                     switch (responseError.status){
                         case 401:
