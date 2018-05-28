@@ -19,7 +19,7 @@
     import {User} from '../services/resources';
     export default {
         ready(){
-            User.get().then((response){
+            User.get().then((response) => {
                 console.log(response.data);
             });
             // console.log(Auth.user());
