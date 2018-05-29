@@ -210,3 +210,12 @@ composer require prettus/l5-repository:~2.6.6
 
 php artisan vendor:publish --provider "Prettus\Repository\Providers\RepositoryServiceProvider"
 ```
+
+## ENTENDENDO FUNCIONAMENTO DOS REPOSITORIES
+
+Respostas comando abaixo: no | no | yes
+
+```
+php artisan make:entity MyModel
+```
+

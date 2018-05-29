@@ -179,6 +179,7 @@ return [
         // CodeLaravelVue\Providers\BroadcastServiceProvider::class,
         CodeLaravelVue\Providers\EventServiceProvider::class,
         CodeLaravelVue\Providers\RouteServiceProvider::class,
+        CodeLaravelVue\Providers\RepositoryServiceProvider::class
 
     ],
 
