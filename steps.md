@@ -197,5 +197,16 @@ npm install gulp-env@^0.4.0 --save-dev --no-bin-link
 npm install stringify-object@^3.0.0 --save-dev --no-bin-link
 
 npm install gulp-file@^0.3.0 --save-dev --no-bin-link
+```
 
+# 07 - INICIANDO CADASTRO DE BANCOS
+
+## INSTALANDO BIBLIOTECA DE REPOSITORIES
+
+https://github.com/andersao/l5-repository
+
+```
+composer require prettus/l5-repository:~2.6.6
+
+php artisan vendor:publish --provider "Prettus\Repository\Providers\RepositoryServiceProvider"
 ```
