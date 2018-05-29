@@ -24,6 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(\CodeLaravelVue\Repositories\MyModelRepository::class, \CodeLaravelVue\Repositories\MyModelRepositoryEloquent::class);
+        $this->app->bind(\CodeLaravelVue\Repositories\BankRepository::class, \CodeLaravelVue\Repositories\BankRepositoryEloquent::class);
         //:end-bindings:
     }
 }

@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateMyModelsTable.
+ * Class CreateBanksTable.
  */
-class CreateMyModelsTable extends Migration
+class CreateBanksTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,9 +15,10 @@ class CreateMyModelsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('my_models', function(Blueprint $table) {
+		Schema::create('banks', function(Blueprint $table) {
             $table->increments('id');
-
+            $table->string('name');
+            $table->string('logo');
             $table->timestamps();
 		});
 	}
@@ -29,6 +30,6 @@ class CreateMyModelsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('my_models');
+		Schema::drop('banks');
 	}
 }

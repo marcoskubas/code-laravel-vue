@@ -219,3 +219,12 @@ Respostas comando abaixo: no | no | yes
 php artisan make:entity MyModel
 ```
 
+## CRIANDO REPOSITÓRIO DO BANCO
+
+Respostas comando abaixo: no | no | yes
+
+```
+php artisan make:entity Bank
+
+php artisan migrate:refresh --seed
+```
