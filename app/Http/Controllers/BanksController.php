@@ -2,20 +2,15 @@
 
 namespace CodeLaravelVue\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use CodeLaravelVue\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use CodeLaravelVue\Http\Requests\BankCreateRequest;
 use CodeLaravelVue\Http\Requests\BankUpdateRequest;
 use CodeLaravelVue\Repositories\BankRepository;
-use CodeLaravelVue\Validators\BankValidator;
 
 /**
  * Class BanksController.
  *
- * @package namespace CodeLaravelVue\Http\Controllers;
  */
 class BanksController extends Controller
 {
@@ -25,20 +20,14 @@ class BanksController extends Controller
     protected $repository;
 
     /**
-     * @var BankValidator
-     */
-    protected $validator;
-
-    /**
      * BanksController constructor.
      *
      * @param BankRepository $repository
      * @param BankValidator $validator
      */
-    public function __construct(BankRepository $repository, BankValidator $validator)
+    public function __construct(BankRepository $repository)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
     }
 
     /**
@@ -59,6 +48,10 @@ class BanksController extends Controller
         }
 
         return view('banks.index', compact('banks'));
+    }
+
+    public function create(){
+
     }
 
     /**
@@ -99,27 +92,6 @@ class BanksController extends Controller
 
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $bank = $this->repository->find($id);
-
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'data' => $bank,
-            ]);
-        }
-
-        return view('banks.show', compact('bank'));
     }
 
     /**
