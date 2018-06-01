@@ -16,7 +16,7 @@
 		<nav>
 			<div class="nav-wrapper">
 				<div class="col s12">
-					<a href="#" class="left brand-logo">Laravel Vue Admin</a>
+					<a href="http://localhost:3001/admin/home" class="left brand-logo">Laravel Vue Admin</a>
 					<a href="#" data-activates="nav-mobile" class="button-collapse">
 						<i class="material-icons">menu</i>
 					</a>
