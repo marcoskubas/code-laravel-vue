@@ -241,3 +241,10 @@ php artisan migrate:refresh --seed
  php artisan migrate:refresh --seed
  
  ```
+ 
+ ## PAGINAÇÃO ESTILO MATERIALIZE CSS
+ 
+ ```
+  php artisan vendor:publish --tag=laravel-pagination
+  
+  ```

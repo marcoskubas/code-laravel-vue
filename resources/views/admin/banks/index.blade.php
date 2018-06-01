@@ -25,6 +25,7 @@
 
             </tbody>
         </table>
+        {!! $banks->links() !!}
     </div>
 </div>
 @endsection
