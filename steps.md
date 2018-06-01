@@ -233,7 +233,7 @@ php artisan migrate:refresh --seed
 
 ```
 
-## LISTAGEM DE BANCOS
+## LISTAGEM DE BANCOS (H)
 
 ```
  php artisan make:seeder BanksTableSeeder
@@ -242,9 +242,18 @@ php artisan migrate:refresh --seed
  
  ```
  
- ## PAGINAÇÃO ESTILO MATERIALIZE CSS
+ ## PAGINAÇÃO ESTILO MATERIALIZE CSS (H)
  
  ```
   php artisan vendor:publish --tag=laravel-pagination
   
+ ```
+ 
+ ## CRIAÇÃO DE FORMULÁRIO DE CADASTRO DE BANCO (H)
+ 
+ https://laravelcollective.com/docs/5.3/html
+  
+  ```
+   composer require "laravelcollective/html":"^5.3.0"
+   
   ```
