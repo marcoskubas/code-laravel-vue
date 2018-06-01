@@ -1,12 +1,13 @@
 <?php
 
-namespace CodeLaravelVue\Http\Controllers;
+namespace CodeLaravelVue\Http\Controllers\Admin;
 
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use CodeLaravelVue\Http\Requests\BankCreateRequest;
 use CodeLaravelVue\Http\Requests\BankUpdateRequest;
 use CodeLaravelVue\Repositories\BankRepository;
+use CodeLaravelVue\Http\Controllers\Controller;
 
 /**
  * Class BanksController.
@@ -131,14 +132,14 @@ class BanksController extends Controller
     {
         $deleted = $this->repository->delete($id);
 
-        if (request()->wantsJson()) {
+        /*if (request()->wantsJson()) {
 
             return response()->json([
                 'message' => 'Bank deleted.',
                 'deleted' => $deleted,
             ]);
-        }
+        }*/
 
-        return redirect()->back()->with('message', 'Bank deleted.');
+        return redirect()->route('admin.banks.index');
     }
 }

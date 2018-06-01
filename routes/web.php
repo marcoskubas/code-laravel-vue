@@ -38,7 +38,7 @@ Route::group([
 
 	Route::group(['middleware' => 'can:access-admin'], function(){
 		Route::get('/home', 'HomeController@index')->name('home');
-		Route::resource('banks', 'BanksController', ['except' => 'show']);
+		Route::resource('banks', 'Admin\BanksController', ['except' => 'show']);
 	});
 	
 });

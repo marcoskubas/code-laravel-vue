@@ -21,7 +21,13 @@
                 <td>{{ $bank->id }}</td>
                 <td>{{ $bank->name }}</td>
                 <td>
-                    <a href="{{route('admin.banks.edit', ['bank' => $bank->id])}}">Editar</a>
+                    <a href="{{route('admin.banks.edit', ['bank' => $bank->id])}}">Editar</a> |
+                    {!! Form::model($bank, [
+                    'route' => ['admin.banks.destroy', 'bank' => $bank->id],
+                    'method' => 'DELETE'
+                 ]) !!}
+                    {!! Form::submit('Excluir', ['class' => 'btn waves-effect']) !!}
+                    {!! Form::close() !!}
                 </td>
             </tr>
             @endforeach
