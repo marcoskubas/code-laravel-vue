@@ -232,3 +232,12 @@ php artisan make:entity Bank
 php artisan migrate:refresh --seed
 
 ```
+
+## LISTAGEM DE BANCOS
+
+```
+ php artisan make:seeder BanksTableSeeder
+ 
+ php artisan migrate:refresh --seed
+ 
+ ```

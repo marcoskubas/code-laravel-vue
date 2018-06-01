@@ -29,3 +29,10 @@ $factory->state(CodeLaravelVue\User::class, 'admin', function(Faker\Generator $f
 		'role' => CodeLaravelVue\User::ROLE_ADMIN,
     ];
 });
+
+$factory->define(CodeLaravelVue\Models\Bank::class, function (Faker\Generator $faker) {
+    return [
+        'name'           => $faker->name,
+        'logo'          => md5(time()) . '.jpg',
+    ];
+});
