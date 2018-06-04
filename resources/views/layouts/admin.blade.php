@@ -28,18 +28,18 @@
             $menuConfig = [
                 'name'  => Auth::user()->name,
                 'menus' => [
-                    ['name' => 'Banco', 'url' => route('admin.banks.index'), 'active' => isRouteName('admin.banks.index')]
+                    ['name' => 'Banco', 'url' => route('admin.banks.index'), 'active' => isRouteActive('admin.banks.index')],
+                    ['name' => 'Contas a pagar', 'dropdownId' => 'teste']
                 ],
-                'menusDropdown' => [],
-                /*'menusDropdown' => [
+                'menusDropdown' => [
                     [
-                        'id' => 'teste', 
+                        'id'    => 'teste',
                         'items' => [
-                            ['name' => 'Listar Contas', 'url' => '/lista'],
-                            ['name' => 'Criar Conta', 'url' => '/criar']
+                            ['name' => 'Banco', 'url' => route('admin.banks.index'), 'active' => isRouteActive('admin.banks.index')],
+                            ['name' => 'Banco Edit', 'url' => route('admin.banks.index'), 'active' => isRouteActive('admin.banks.edit')],
                         ]
                     ]
-                ],*/
+                ],
                 'urlLogout' => '/admin/logout',
                 'csrfToken' => csrf_token()
             ];
