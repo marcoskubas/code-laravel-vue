@@ -257,3 +257,12 @@ php artisan migrate:refresh --seed
    composer require "laravelcollective/html":"^5.3.0"
    
   ```
+
+  # 08 - CRUD DE BANCOS
+
+  ## VERIFICAÇÃO DA ROTA ATIVA NO ADMIN
+
+  ```
+  composer dumpautoload
+  
+  ```
