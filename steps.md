@@ -264,5 +264,14 @@ php artisan migrate:refresh --seed
 
   ```
   composer dumpautoload
+
+  ```
+
+  ## REQUEST FORM VALIDATION
+
+  https://laravel.com/docs/5.3/validation
+
+  ```
   
+
   ```
