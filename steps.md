@@ -260,7 +260,7 @@ php artisan migrate:refresh --seed
 
   # 08 - CRUD DE BANCOS
 
-  ## VERIFICAÇÃO DA ROTA ATIVA NO ADMIN
+  ## VERIFICAÇÃO DA ROTA ATIVA NO ADMIN (W)
 
   ```
   composer dumpautoload
@@ -271,7 +271,9 @@ php artisan migrate:refresh --seed
 
   https://laravel.com/docs/5.3/validation
 
+  ## REGRAS DE VALIDAÇÃO DE ERRO (W)
+
   ```
-  
+  php artisan make:request NomeRequest
 
   ```
