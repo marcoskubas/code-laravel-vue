@@ -297,3 +297,7 @@ php artisan migrate:refresh --seed
   php artisan make:listener BankLogoUploadListener --event=BankStoredEvent
 
   ```
+
+  ## CRIAÇÃO - IMPLEMENTAÇÂO DE UPLOAD DE LOGO (W)
+
+  Criar pasta storage/banks/images
