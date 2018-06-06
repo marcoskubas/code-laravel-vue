@@ -301,3 +301,10 @@ php artisan migrate:refresh --seed
   ## CRIAÇÃO - IMPLEMENTAÇÂO DE UPLOAD DE LOGO (W)
 
   Criar pasta storage/banks/images
+
+  ## CRIAÇÂO - TESTANDO UPLOAD NA CRIAÇÃO DE BANCO (W)
+
+  ```
+  php artisan storage:link
+
+  ```

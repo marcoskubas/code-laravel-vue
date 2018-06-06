@@ -12,8 +12,6 @@ class BankStoredEvent
 
     private $logo;
 
-    use InteractsWithSockets, SerializesModels;
-
     /**
      * Create a new event instance.
      *

@@ -2,11 +2,10 @@
 
 namespace CodeLaravelVue\Repositories;
 
+use CodeLaravelVue\Events\BankStoredEvent;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use CodeLaravelVue\Repositories\BankRepository;
 use CodeLaravelVue\Models\Bank;
-use CodeLaravelVue\Validators\BankValidator;
 
 /**
  * Class BankRepositoryEloquent.
@@ -15,6 +14,18 @@ use CodeLaravelVue\Validators\BankValidator;
  */
 class BankRepositoryEloquent extends BaseRepository implements BankRepository
 {
+    public function create(array $attributes){
+
+        $logo               = $attributes['logo'];
+        $attributes['logo'] = "semimagem.jpeg";
+        $model              =  parent::create($attributes);
+
+        $event = new BankStoredEvent($model, $logo);
+        event($event);
+
+        return $model;
+    }
+
     /**
      * Specify Model class name
      *

@@ -17,7 +17,7 @@ class BankLogoUploadListener
      */
     public function __construct(BankRepository $repository)
     {
-        //
+        $this->repository = $repository;
     }
 
     /**
