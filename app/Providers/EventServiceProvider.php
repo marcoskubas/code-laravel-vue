@@ -4,6 +4,9 @@ namespace CodeLaravelVue\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use CodeLaravelVue\Events\BankCreatedEvent;
+use CodeLaravelVue\Listeners\BankLogoUpload;
+use CodeLaravelVue\Listeners\BankActionListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -13,8 +16,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'CodeLaravelVue\Events\SomeEvent' => [
-            'CodeLaravelVue\Listeners\EventListener',
+        BankCreatedEvent::class => [
+            BankLogoUpload::class,
+            BankActionListener::class,
         ],
     ];
 

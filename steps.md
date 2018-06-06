@@ -239,7 +239,7 @@ php artisan migrate:refresh --seed
  php artisan make:seeder BanksTableSeeder
  
  php artisan migrate:refresh --seed
- 
+
  ```
  
  ## PAGINAÇÃO ESTILO MATERIALIZE CSS (H)
@@ -275,5 +275,16 @@ php artisan migrate:refresh --seed
 
   ```
   php artisan make:request NomeRequest
+
+  ```
+
+  ## BRINCANDO COM EVENTOS (W)
+
+  ```
+  php artisan make:event BankCreatedEvent
+
+  php artisan make:listener BankLogoUpload --event=BankCreatedEvent
+
+  php artisan make:listener BankActionListener --event=BankCreatedEvent
 
   ```

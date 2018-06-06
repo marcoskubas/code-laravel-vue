@@ -8,6 +8,8 @@ use CodeLaravelVue\Http\Requests\BankCreateRequest;
 use CodeLaravelVue\Http\Requests\BankUpdateRequest;
 use CodeLaravelVue\Repositories\BankRepository;
 use CodeLaravelVue\Http\Controllers\Controller;
+use CodeLaravelVue\Events\BankCreatedEvent;
+use CodeLaravelVue\Models\Bank;
 
 /**
  * Class BanksController.
@@ -46,6 +48,10 @@ class BanksController extends Controller
                 'data' => $banks,
             ]);
         }*/
+
+        $bank = new Bank();
+        $bank->name = "Itaú";
+        event(new BankCreatedEvent($bank));
 
         return view('admin.banks.index', compact('banks'));
     }
