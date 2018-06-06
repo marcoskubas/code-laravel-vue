@@ -288,3 +288,12 @@ php artisan migrate:refresh --seed
   php artisan make:listener BankActionListener --event=BankCreatedEvent
 
   ```
+
+  ## CRIANDO EVENTO E LISTENER PARA UPLOAD (W)
+
+  ```
+  php artisan make:event BankStoredEvent
+
+  php artisan make:listener BankLogoUploadListener --event=BankStoredEvent
+
+  ```
