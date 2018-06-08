@@ -34,7 +34,7 @@ class BankLogoUploadListener
         if($logo){
 
             //fazer ajuste para pegar nova extensão do arquivo no case de update
-            $name     = $bank->created_at != $bank->updated_at ? $bank->logo : md5(time()) . '.' . $logo->guessExtension();
+            $name     = $bank->created_at != $bank->updated_at ? $bank->logo : md5(uniqid(rand(), true)) . '.' . $logo->guessExtension();
             $destFile = Bank::logosDir();
 
             \Storage::disk('public')->putFileAs($destFile, $logo, $name);

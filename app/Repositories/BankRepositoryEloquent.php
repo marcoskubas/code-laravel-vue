@@ -6,6 +6,7 @@ use CodeLaravelVue\Events\BankStoredEvent;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use CodeLaravelVue\Models\Bank;
+use Illuminate\Http\UploadedFile;
 
 /**
  * Class BankRepositoryEloquent.
@@ -29,7 +30,7 @@ class BankRepositoryEloquent extends BaseRepository implements BankRepository
     public function update(array $attributes, $id){
         
         $logo = null;
-        if(isset($attributes['logo'])){
+        if(isset($attributes['logo']) && $attributes['logo'] instanceof UploadedFile){
             $logo  = $attributes['logo'];
             unset($attributes['logo']);
         }

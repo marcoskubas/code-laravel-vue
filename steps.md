@@ -308,3 +308,14 @@ php artisan migrate:refresh --seed
   php artisan storage:link
 
   ```
+
+  ## CRIANDO BANCOS PADRÕES (W)
+
+  criar diretório storage/app/files/banks/logos e colocar logos
+
+  ```
+  php artisan make:migration create_banks_data
+
+  php artisan migrate:refresh --seed
+
+  ```
