@@ -331,7 +331,7 @@ php artisan migrate:refresh --seed
 
 # 09 - ENDPOINT DE CONTAS BANCÁRIAS
 
-## CRIANDO AMBIENTE PARA CONTA BANCÁRIA (W)
+## CRIANDO AMBIENTE PARA CONTA BANCÁRIA E SEMEANDO CONTAS BANCÁRIAS (W)
 
 ```
 php artisan make:entity BanckAccount (yes/yes/no/yes)
