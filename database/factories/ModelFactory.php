@@ -24,8 +24,15 @@ $factory->define(CodeLaravelVue\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->state(CodeLaravelVue\User::class, 'admin', function(Faker\Generator $faker) {
-
     return [
 		'role' => CodeLaravelVue\User::ROLE_ADMIN,
+    ];
+});
+
+$factory->define(CodeLaravelVue\Models\BankAccount::class, function (Faker\Generator $faker) {
+    return [
+		'name'    => $faker->city,
+		'agency'  => rand(10000, 60000) . '-' . rand(0, 9),
+		'account' => rand(70000, 260000) . '-' . rand(0, 9)
     ];
 });

@@ -253,78 +253,90 @@ php artisan migrate:refresh --seed
  
  https://laravelcollective.com/docs/5.3/html
   
-  ```
-   composer require "laravelcollective/html":"^5.3.0"
-   
-  ```
+```
+ composer require "laravelcollective/html":"^5.3.0"
+ 
+```
 
-  # 08 - CRUD DE BANCOS
+# 08 - CRUD DE BANCOS
 
-  ## VERIFICAÇÃO DA ROTA ATIVA NO ADMIN (W)
+## VERIFICAÇÃO DA ROTA ATIVA NO ADMIN (W)
 
-  ```
-  composer dumpautoload
+```
+composer dumpautoload
 
-  ```
+```
 
-  ## REQUEST FORM VALIDATION
+## REQUEST FORM VALIDATION
 
-  https://laravel.com/docs/5.3/validation
+https://laravel.com/docs/5.3/validation
 
-  ## REGRAS DE VALIDAÇÃO DE ERRO (W)
+## REGRAS DE VALIDAÇÃO DE ERRO (W)
 
-  ```
-  php artisan make:request NomeRequest
+```
+php artisan make:request NomeRequest
 
-  ```
+```
 
-  ## BRINCANDO COM EVENTOS (W)
+## BRINCANDO COM EVENTOS (W)
 
-  ```
-  php artisan make:event BankCreatedEvent
+```
+php artisan make:event BankCreatedEvent
 
-  php artisan make:listener BankLogoUpload --event=BankCreatedEvent
+php artisan make:listener BankLogoUpload --event=BankCreatedEvent
 
-  php artisan make:listener BankActionListener --event=BankCreatedEvent
+php artisan make:listener BankActionListener --event=BankCreatedEvent
 
-  ```
+```
 
-  ## CRIANDO EVENTO E LISTENER PARA UPLOAD (W)
+## CRIANDO EVENTO E LISTENER PARA UPLOAD (W)
 
-  ```
-  php artisan make:event BankStoredEvent
+```
+php artisan make:event BankStoredEvent
 
-  php artisan make:listener BankLogoUploadListener --event=BankStoredEvent
+php artisan make:listener BankLogoUploadListener --event=BankStoredEvent
 
-  ```
+```
 
-  ## CRIAÇÃO - IMPLEMENTAÇÂO DE UPLOAD DE LOGO (W)
+## CRIAÇÃO - IMPLEMENTAÇÂO DE UPLOAD DE LOGO (W)
 
-  Criar pasta storage/banks/images
+Criar pasta storage/banks/images
 
-  ## CRIAÇÂO - TESTANDO UPLOAD NA CRIAÇÃO DE BANCO (W)
+## CRIAÇÂO - TESTANDO UPLOAD NA CRIAÇÃO DE BANCO (W)
 
-  ```
-  php artisan storage:link
+```
+php artisan storage:link
 
-  ```
+```
 
-  ## CRIANDO BANCOS PADRÕES (W)
+## CRIANDO BANCOS PADRÕES (W)
 
-  criar diretório storage/app/files/banks/logos e colocar logos
+criar diretório storage/app/files/banks/logos e colocar logos
 
-  ```
-  php artisan make:migration create_banks_data
+```
+php artisan make:migration create_banks_data
 
-  php artisan migrate:refresh --seed
+php artisan migrate:refresh --seed
 
-  ```
+```
 
-  ## CRIANDO LOGO PADRÃO (W)
+## CRIANDO LOGO PADRÃO (W)
 
-  ```
-  php artisan make:migration create_bank_logo_default
+```
+php artisan make:migration create_bank_logo_default
 
-  php artisan migrate:refresh --seed
+php artisan migrate:refresh --seed
 
-  ```
+```
+
+# 09 - ENDPOINT DE CONTAS BANCÁRIAS
+
+## CRIANDO AMBIENTE PARA CONTA BANCÁRIA (W)
+
+```
+php artisan make:entity BanckAccount (yes/yes/no/yes)
+
+php artisan make:seeder BankAccountSeeder
+
+```
+
