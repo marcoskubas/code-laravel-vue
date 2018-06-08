@@ -336,7 +336,9 @@ php artisan migrate:refresh --seed
 ```
 php artisan make:entity BanckAccount (yes/yes/no/yes)
 
-php artisan make:seeder BankAccountSeeder
+php artisan make:seeder BankAccountsTableSeeder
+
+php artisan migrate:refresh --seed
 
 ```
 
