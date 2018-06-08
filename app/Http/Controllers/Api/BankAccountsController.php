@@ -9,6 +9,7 @@ use CodeLaravelVue\Http\Requests;
 use CodeLaravelVue\Http\Requests\BankAccountCreateRequest;
 use CodeLaravelVue\Http\Requests\BankAccountUpdateRequest;
 use CodeLaravelVue\Repositories\BankAccountRepository;
+// use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
  * Class BankAccountsController.
@@ -67,7 +68,7 @@ class BankAccountsController extends Controller
     public function show($id)
     {
         $bankAccount = $this->repository->find($id);
-        return response()->json($bankAccount->toArray(), 200);
+        return response()->json($bankAccount->toArray());
     }
 
     /**
