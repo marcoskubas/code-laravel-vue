@@ -319,3 +319,12 @@ php artisan migrate:refresh --seed
   php artisan migrate:refresh --seed
 
   ```
+
+  ## CRIANDO LOGO PADRÃO (W)
+
+  ```
+  php artisan make:migration create_bank_logo_default
+
+  php artisan migrate:refresh --seed
+
+  ```
