@@ -1,8 +1,12 @@
 <?php
 
+use CodeLaravelVue\Models\Bank;
+use CodeLaravelVue\Repositories\BankRepository;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Storage;
 
 class CreateBanksData extends Migration
 {
@@ -28,7 +32,18 @@ class CreateBanksData extends Migration
      */
     public function down()
     {
-        //
+        /** @var BankRepository $repository */
+        $repository = app(BankRepository::class);
+        $repository->skipPresenter(true);
+        $count = count($this->getData());
+
+        foreach (range(1,$count) as $id) :
+            $bank = $repository->find($id);
+            $path = Bank::logosDir() . '/' . $bank->logo;
+            Storage::disk('public')->delete($path);
+            echo "Imagem do {$bank->name} deletada: " . $bank->logo . "\n";
+            $bank->delete();
+        endforeach;
     }
 
     public function getData(){
