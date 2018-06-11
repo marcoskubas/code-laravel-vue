@@ -342,3 +342,14 @@ php artisan migrate:refresh --seed
 
 ```
 
+# 10 - PAGINAÇÃO NO SPA
+
+## INICIANDO COM FRACTAL (W)
+
+http://fractal.thephpleague.com/
+
+```
+composer require league/fractal
+
+```
+
