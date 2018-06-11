@@ -353,3 +353,9 @@ composer require league/fractal
 
 ```
 
+## MAIS SOBRE FRACTAL (W)
+
+```
+php artisan make:presenter Teste (yes)
+
+```

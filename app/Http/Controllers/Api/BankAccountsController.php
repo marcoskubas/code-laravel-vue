@@ -40,6 +40,9 @@ class BankAccountsController extends Controller
      */
     public function index()
     {
+        // $this->repository->skipPresenter(true);
+        // $this->repository->setPresenter(CodeLaravelVue\Presenters\MyPresenter::class);
+        
         $bankAccounts = $this->repository->all();
         return $bankAccounts;
     }

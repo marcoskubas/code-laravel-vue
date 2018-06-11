@@ -15,6 +15,8 @@ use CodeLaravelVue\Presenters\BankAccountPresenter;
  */
 class BankAccountRepositoryEloquent extends BaseRepository implements BankAccountRepository
 {
+    // protected $skipPresenter = true;
+    
     /**
      * Specify Model class name
      *
