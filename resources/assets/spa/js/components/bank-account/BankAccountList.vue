@@ -6,7 +6,9 @@
 					<h5>Minhas contas bancárias</h5>
 				</span>
 			</div>
-			<table class="bordered striped highlight responsive-table z-depth-5">
+
+			<div class="card-panel z-depth-5">
+				<table class="bordered striped highlight responsive-table">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -29,6 +31,7 @@
 					</tr>
 				</tbody>
 			</table>
+			</div>
 
 			<div class="fixed-action-btn">
 				<a class="btn-floating btn-large" href="http://code.education">
