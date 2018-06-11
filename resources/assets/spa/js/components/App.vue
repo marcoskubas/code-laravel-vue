@@ -1,7 +1,7 @@
 
 <template>
 	<div id="app">
-		<div class="spinner-fixed">
+		<div class="spinner-fixed" v-if="loading">
 			<div class="spinner">
 				<div class="indeterminate"></div>
 			</div>
@@ -35,9 +35,16 @@
 		},
 		data(){
 			return {
-				year : new Date().getFullYear(),
-				user : Auth.user
+				year 	: new Date().getFullYear(),
+				user 	: Auth.user,
+				loading : false
 			}
+		},
+		created(){
+			window.Vue.http.interceptors.unshift((request, next) => {
+				this.loading = true;
+				next(() => this.loading = false);
+			});
 		},
 		computed: {
 			showMenu(){
