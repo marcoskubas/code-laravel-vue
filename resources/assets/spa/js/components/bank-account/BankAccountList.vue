@@ -9,28 +9,29 @@
 
 			<div class="card-panel z-depth-5">
 				<table class="bordered striped highlight responsive-table">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Nome</th>
-						<th>Agência</th>
-						<th>C/C</th>
-						<th>Ações</th>
-					</tr>
-				</thead>	
-				<tbody>
-					<tr v-for="(index, o) in bankAccounts">
-						<td>&nbsp;{{ index + 1 }}</td>
-						<td>{{ o.name }}</td>
-						<td>{{ o.agency }}</td>
-						<td>{{ o.account }}</td>
-						<td>
-							<a v-link="{name: 'bank-account.update', params: {id: o.id}}">Editar</a> | 
-							<a href="#" @click.prevent="openModalDelete(o)">Excluir</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nome</th>
+							<th>Agência</th>
+							<th>C/C</th>
+							<th>Ações</th>
+						</tr>
+					</thead>	
+					<tbody>
+						<tr v-for="(index, o) in bankAccounts">
+							<td>&nbsp;{{ index + 1 }}</td>
+							<td>{{ o.name }}</td>
+							<td>{{ o.agency }}</td>
+							<td>{{ o.account }}</td>
+							<td>
+								<a v-link="{name: 'bank-account.update', params: {id: o.id}}">Editar</a> | 
+								<a href="#" @click.prevent="openModalDelete(o)">Excluir</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<pagination :per-page="10" :total-records="55"></pagination>
 			</div>
 
 			<div class="fixed-action-btn">
@@ -60,10 +61,12 @@
 <script type="text/javascript">
 	import {BankAccount} from '../../services/resources';
 	import ModalComponent from '../../../../_default/components/Modal.vue';
+	import PaginationComponent from '../Pagination.vue';
 
 	export default {
 		components : {
-			'modal' : ModalComponent
+			'modal' 	 : ModalComponent,
+			'pagination' : PaginationComponent
 		},
 		data() {
 			return {
