@@ -43,7 +43,7 @@ class BankAccountsController extends Controller
         // $this->repository->skipPresenter(true);
         // $this->repository->setPresenter(CodeLaravelVue\Presenters\MyPresenter::class);
         
-        $bankAccounts = $this->repository->all();
+        $bankAccounts = $this->repository->paginate();
         return $bankAccounts;
     }
 
