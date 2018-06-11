@@ -40,8 +40,9 @@ export default {
         });
 	},
 	logout(){
-		let afterLogout = () => {
+		let afterLogout = (response) => {
 			this.clearAuth();
+			return response;
 		};
 		return JwtToken.revokeToken().then(afterLogout).catch(afterLogout);
 	},
