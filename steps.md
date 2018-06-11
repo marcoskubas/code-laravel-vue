@@ -359,3 +359,8 @@ composer require league/fractal
 php artisan make:presenter Teste (yes)
 
 ```
+
+## CRIANDO LOADING
+
+http://materializecss.com/preloader.html
+
