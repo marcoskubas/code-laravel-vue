@@ -379,3 +379,17 @@ php artisan make:criteria FindByLikeAgency
 
 ```
 
+## REQUEST CRITERIA
+
+http://localhost:8000/api/bank_accounts?search=Diegoview
+
+http://localhost:8000/api/bank_accounts?search=Diego&searchFields=name:like
+
+http://localhost:8000/api/bank_accounts?search=name:Diego;agency:2
+
+http://localhost:8000/api/bank_accounts?search=name:Diego;agency:2&filter=id;name
+
+http://prettus.local/?search=lorem&orderBy=id&sortedBy=asc
+
+http://prettus.local/?search=lorem&orderBy=id&sortedBy=desc
+

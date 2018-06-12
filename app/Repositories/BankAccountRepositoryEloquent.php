@@ -15,6 +15,11 @@ use CodeLaravelVue\Presenters\BankAccountPresenter;
  */
 class BankAccountRepositoryEloquent extends BaseRepository implements BankAccountRepository
 {
+    protected $fieldSearchable = [
+        'name',
+        'agency',
+        'bank.name' => 'like' //relacionamento
+    ];
     // protected $skipPresenter = true;
     
     /**
@@ -26,8 +31,6 @@ class BankAccountRepositoryEloquent extends BaseRepository implements BankAccoun
     {
         return BankAccount::class;
     }
-
-    
 
     /**
      * Boot up the repository, pushing criteria
