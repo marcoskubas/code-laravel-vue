@@ -99,7 +99,7 @@
 			},
 			getBankAccounts(){
 				BankAccount.query({
-					page: this.pagination.current_page + 1;
+					page: this.pagination.current_page + 1
 				}).then((response) => {
 					this.bankAccounts = response.data.data;
 					let pagination    = responde.data.meta.pagination;

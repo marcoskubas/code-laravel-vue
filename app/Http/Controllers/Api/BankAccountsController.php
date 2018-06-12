@@ -9,6 +9,8 @@ use CodeLaravelVue\Http\Requests;
 use CodeLaravelVue\Http\Requests\BankAccountCreateRequest;
 use CodeLaravelVue\Http\Requests\BankAccountUpdateRequest;
 use CodeLaravelVue\Repositories\BankAccountRepository;
+use CodeLaravelVue\Criteria\FindByNameCriteria;
+use CodeLaravelVue\Criteria\FindByLikeAgencyCriteria;
 // use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
@@ -42,7 +44,10 @@ class BankAccountsController extends Controller
     {
         // $this->repository->skipPresenter(true);
         // $this->repository->setPresenter(CodeLaravelVue\Presenters\MyPresenter::class);
-        
+
+        $this->repository->pushCriteria(new FindByNameCriteria('Diegoview'))
+                         ->pushCriteria(new FindByLikeAgencyCriteria('0'));
+                         
         $bankAccounts = $this->repository->paginate();
         return $bankAccounts;
     }

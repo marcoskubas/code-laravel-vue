@@ -370,3 +370,12 @@ http://materializecss.com/preloader.html
 
 http://martinfowler.com/eaaCatalog/repository.html
 
+## TRABALHANDO COM CRITERIA
+
+```
+php artisan make:criteria FindByName
+
+php artisan make:criteria FindByLikeAgency
+
+```
+
