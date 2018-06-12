@@ -364,3 +364,9 @@ php artisan make:presenter Teste (yes)
 
 http://materializecss.com/preloader.html
 
+# 11 - ORDENAÇÃO E FILTROS
+
+## INTRODUÇÃO AO CRITERIA
+
+http://martinfowler.com/eaaCatalog/repository.html
+
