@@ -45,8 +45,8 @@ class BankAccountsController extends Controller
         // $this->repository->skipPresenter(true);
         // $this->repository->setPresenter(CodeLaravelVue\Presenters\MyPresenter::class);
 
-        $this->repository->pushCriteria(new FindByNameCriteria('Diegoview'))
-                         ->pushCriteria(new FindByLikeAgencyCriteria('2'));
+        /*$this->repository->pushCriteria(new FindByNameCriteria('Diegoview'))
+                         ->pushCriteria(new FindByLikeAgencyCriteria('2'));*/
                          
         $bankAccounts = $this->repository->paginate();
         return $bankAccounts;
