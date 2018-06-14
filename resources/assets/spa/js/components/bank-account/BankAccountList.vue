@@ -8,6 +8,16 @@
 			</div>
 
 			<div class="card-panel z-depth-5">
+				<form name="form" method="GET" @submit="filter()">
+					<div class="filter-group">
+						<button class="btn waves-effect" type="submit">
+							<i class="material-icons">search</i>
+						</button>
+						<div class="filter-wrapper">
+							<input type="text" v-model="search" placeholder="Digite aqui a sua busca..." />
+						</div>
+					</div>
+				</form>
 				<table class="bordered striped highlight responsive-table">
 					<thead>
 						<tr>
@@ -84,6 +94,7 @@
 					per_page 	 : 0,
 					total 		 : 0
 				},
+				search: "",
 				order: {
 					key  : 'id',
 					sort : 'asc'
@@ -129,7 +140,8 @@
 				BankAccount.query({
 					page: this.pagination.current_page + 1,
 					orderBy: this.order.key,
-					sortedBy: this.order.sort
+					sortedBy: this.order.sort,
+					search: this.search
 				}).then((response) => {
 					this.bankAccounts = response.data.data;
 					let pagination    = response.data.meta.pagination;
@@ -141,6 +153,9 @@
 				this.order.key = key;
 				this.order.sort = this.order.sort == 'desc' ? 'asc' : 'desc';
 				this.getBankAccounts();
+			},
+			filter(){
+			    this.getBankAccounts();
 			}
 		},
 		events : {
