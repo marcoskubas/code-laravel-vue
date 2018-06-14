@@ -132,7 +132,7 @@
 					sortedBy: this.order.sort
 				}).then((response) => {
 					this.bankAccounts = response.data.data;
-					let pagination    = responde.data.meta.pagination;
+					let pagination    = response.data.meta.pagination;
 					pagination.current_page--;
 					this.pagination = pagination;
 				});
