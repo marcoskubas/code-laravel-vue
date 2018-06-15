@@ -3,6 +3,7 @@
 namespace CodeLaravelVue\Presenters;
 
 use Prettus\Repository\Presenter\FractalPresenter;
+use CodeLaravelVue\Transformers\BankTransformer;
 
 /**
  * Class BankPresenter

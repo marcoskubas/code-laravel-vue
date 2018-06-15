@@ -393,3 +393,11 @@ http://prettus.local/?search=lorem&orderBy=id&sortedBy=asc
 
 http://prettus.local/?search=lorem&orderBy=id&sortedBy=desc
 
+# 12 - TERMINANDO CRUD DE CONTAS BANCÁRIAS
+
+## DESFAZENDO MIGRATIONS
+
+```
+php artisan migrate:roolback --step=3
+
+```
