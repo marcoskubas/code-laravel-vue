@@ -16,7 +16,7 @@ use CodeLaravelVue\Criteria\FindByLikeAgencyCriteria;
 /**
  * Class BankAccountsController.
  *
- * @package namespace CodeLaravelVue\Http\Controllers;
+ * @package namespace CodeLaravelVue\Http\Controllers\Api;
  */
 class BankAccountsController extends Controller
 {

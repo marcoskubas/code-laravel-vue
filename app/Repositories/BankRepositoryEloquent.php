@@ -7,6 +7,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use CodeLaravelVue\Models\Bank;
 use Illuminate\Http\UploadedFile;
+use CodeLaravelVue\Presenters\BankPresenter;
 
 /**
  * Class BankRepositoryEloquent.
@@ -60,6 +61,10 @@ class BankRepositoryEloquent extends BaseRepository implements BankRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    public function presenter(){
+        return BankPresenter::class;
     }
     
 }
