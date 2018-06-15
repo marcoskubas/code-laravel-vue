@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="fixed-action-btn">
-				<a class="btn-floating btn-large" href="http://code.education">
+				<a class="btn-floating btn-large" v-link="{name: 'bank-account.create'}">
 					<i class="large material-icons">add</i>
 				</a>
 			</div>
