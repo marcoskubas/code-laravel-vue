@@ -3,8 +3,9 @@
 namespace CodeLaravelVue\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use CodeLaravelVue\Http\Requests\BankAccountCreateRequest;
 
-class BankAccountUpdateRequest extends FormRequest
+class BankAccountUpdateRequest extends BankAccountCreateRequest
 {
     /**
      * Determine if the user is authorized to make this request.

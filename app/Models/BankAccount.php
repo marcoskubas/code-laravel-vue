@@ -24,7 +24,8 @@ class BankAccount extends Model implements Transformable
     	'name',
     	'agency',
     	'account',
-    	'bank_id'
+    	'bank_id',
+        'default'
     ];
 
     public function bank(){

@@ -401,3 +401,10 @@ http://prettus.local/?search=lorem&orderBy=id&sortedBy=desc
 php artisan migrate:roolback --step=3
 
 ```
+
+## LISTENER PARA ATRIBUIÇÃO DE CONTA PADRÃO
+
+```
+php artisan make:listener BankAccountSetDefault --event="Prettus\Repository\Events\RepositoryEventBase"
+
+```
