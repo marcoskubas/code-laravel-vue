@@ -412,3 +412,14 @@ php artisan make:listener BankAccountSetDefault --event="Prettus\Repository\Even
 ## DEFAULT E AVAILABLE INCLUDES
 
 http://localhost:8000/api/bank_accounts/16?include=bank
+
+## INICIANDO AUTOCOMPLETE (W)
+
+https://materializecss.com/autocomplete.html
+
+https://github.com/icefox0801/materialize-autocomplete
+
+```
+npm install materialize-autocomplete@1.0.7 --save
+
+```
