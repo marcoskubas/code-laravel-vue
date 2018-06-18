@@ -5,7 +5,9 @@ namespace CodeLaravelVue\Providers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use CodeLaravelVue\Events\BankStoredEvent;
-use CodeLaravelVue\Listeners\BankLogoUploadListener;
+use CodeLaravelVue\Listeners\BankAccountSetDefault;
+use Prettus\Repository\Events\RepositoryEntityCreated;
+use Prettus\Repository\Events\RepositoryEntityUpdated;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +20,12 @@ class EventServiceProvider extends ServiceProvider
         BankStoredEvent::class => [
             BankLogoUploadListener::class,
         ],
+        RepositoryEntityCreated::class => [
+          BankAccountSetDefault::class,
+        ],
+        RepositoryEntityUpdated::class => [
+          BankAccountSetDefault::class,
+        ]
     ];
 
     /**
