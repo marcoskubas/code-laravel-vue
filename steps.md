@@ -408,3 +408,7 @@ php artisan migrate:roolback --step=3
 php artisan make:listener BankAccountSetDefault --event="Prettus\Repository\Events\RepositoryEventBase"
 
 ```
+
+## DEFAULT E AVAILABLE INCLUDES
+
+http://localhost:8000/api/bank_accounts/16?include=bank
