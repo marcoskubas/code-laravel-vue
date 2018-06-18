@@ -13,9 +13,9 @@ use CodeLaravelVue\Transformers\BankTransformer;
  */
 class BankAccountTransformer extends TransformerAbstract
 {
-    // protected $defaultIncludes = ['bank'];
+    protected $defaultIncludes = ['bank'];
 
-    protected $availableIncludes = ['bank'];
+    // protected $availableIncludes = ['bank'];
 
     /**
      * Transform the BankAccount entity.

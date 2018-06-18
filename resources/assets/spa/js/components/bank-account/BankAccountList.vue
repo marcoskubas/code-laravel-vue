@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<!-- <div class="container"> -->
 		<div class="row">
 			<page-title>
 				<h5>Minhas contas bancárias</h5>
@@ -28,6 +28,16 @@
 							<td>{{ o.agency }}</td>
 							<td>{{ o.account }}</td>
 							<td>
+								<div class="row valign-wrapper">
+									<div class="col s2">
+										<img :src="o.bank.data.logo" class="bank-logo">
+									</div>
+									<div class="col s10">
+										<span class="left">{{ o.bank.data.name }}</span>
+									</div>
+								</div>
+							</td>
+							<td>
 								<i class="material-icons green-text" v-if="o.default">check</i>
 							</td>
 							<td>
@@ -46,7 +56,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	<!-- </div> -->
 	<modal :modal="modal">
 		<div slot="content" v-if="bankAccountToDelete">
 			<h4>Mensagem de confirmação</h4>
@@ -98,24 +108,22 @@
 				table: {
 					headers: {
 						id: {
-							label : '#',
-							width : '10%'
+							label : '#', width : '7%'
 						},
 						name: {
-							label : 'Nome',
-							width : '30%'
+							label : 'Nome', width : '30%'
 						},
 						agency: {
-							label : 'Agência',
-							width : '15%'
+							label : 'Agência', width : '13%'
 						},
 						account: {
-							label : 'C/C',
-							width : '15%'
+							label : 'C/C', width : '13%'
+						},
+						'banks:bank_id|banks.name': {
+							label : 'Banco', width : '17%'
 						},
 						'default': {
-							label : 'Padrão',
-							width : '15%'
+							label : 'Padrão', width : '5%'
 						},
 					}
 				}
