@@ -35,7 +35,7 @@
             getBanks(){
                 Bank.query().then((response) => {
                     this.banks = response.data.data;
-                    this.initAutocomplete();
+                    // this.initAutocomplete();
                 });
             },
             initAutocomplete(){
@@ -49,7 +49,7 @@
                         dropdown: {
                             el: '#bank-id-dropdown'
                         },
-                        getData: (value, callback) => {
+                        getData: function(value, callback){
                             callback(value, self.banks);
                         }
                     });
