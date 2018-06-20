@@ -12,11 +12,8 @@ class BankAccountsTableSeeder extends Seeder
      */
     public function run()
     {
-
-    	/** \CodeLaravelVue\Repositories\BankRepository $repository */
-		$repository    = app(\CodeLaravelVue\Repositories\BankRepository::class);
-		$repository->skipPresenter(true);
-		$banks         = $repository->all();
+        $banks   = $this->getBanks();
+        $clients = $this->getClients();
 		$max           = 15;
 		$bankAccountId = rand(1, $max);
 
@@ -24,9 +21,13 @@ class BankAccountsTableSeeder extends Seeder
 
         factory(\CodeLaravelVue\Models\BankAccount::class, $max)
         	->make()
-        	->each(function ($bankAccount) use($banks, $bankAccountId) {
-        		$bank = $banks->random();
-        		$bankAccount->bank_id = $bank->id;
+        	->each(function ($bankAccount) use($banks, $bankAccountId, $clients) {
+                
+                $bank   = $banks->random();
+                $client = $clients->random();
+
+                $bankAccount->bank_id   = $bank->id;
+                $bankAccount->client_id = $client->id;
 
         		$bankAccount->save();
 
@@ -36,5 +37,18 @@ class BankAccountsTableSeeder extends Seeder
         		}
 
         	});
+    }
+
+    private function getBanks(){
+        $repository    = app(\CodeLaravelVue\Repositories\BankRepository::class);
+        $repository->skipPresenter(true);
+        $banks         = $repository->all();
+        return $banks;
+    }
+
+    private function getClients(){
+        $repository = app(\CodeLaravelVue\Repositories\ClientRepository::class);
+        $clients    = $repository->all();
+        return $clients;
     }
 }

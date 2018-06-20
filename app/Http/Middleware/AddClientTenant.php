@@ -15,7 +15,7 @@ class AddClientTenant
      */
     public function handle($request, Closure $next)
     {
-        if($request->is('apip/*')){
+        if($request->is('api/*')){
             $user = \Auth::guard('api')->user();
             if($user){
                 $client = $user->client;

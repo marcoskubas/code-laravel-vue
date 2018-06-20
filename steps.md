@@ -487,3 +487,12 @@ php artisan vendor:publish --provider="HipsterJazzbo\Landlord\LandlordServicePro
 php artisan make:middleware AddClientTenant
 
 ```
+
+## TESTANDO MULTI-TENANCY
+
+```
+php artisan make:migration add_clients_to_bank_accounts --table=bank_accounts
+
+php artisan migrate:refresh --seed
+
+```
