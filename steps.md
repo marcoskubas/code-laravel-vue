@@ -1,3 +1,12 @@
+
+ADMIN
+
+http://localhost:3001/admin/login
+
+CLIENTE
+
+http://localhost:3001/app#!/login
+
 # 01 - AUTH DA ÁREA ADMINISTRATIVA
 
 ## CRIANDO APLICAÇÃO LARAVEL
@@ -427,3 +436,20 @@ npm install materialize-autocomplete@1.0.7 --save
 ## TESTANDO AUTOCOMPLETE
 
 https://lodash.com/docs/4.17.2
+
+# 13 - MULTI-TENANCY
+
+## DICAS SOBRE BIBLIOTECAS DE MULTI-TENANCY
+
+A simple, single database multi-tenancy solution for Laravel 5.2+
+
+https://github.com/HipsterJazzbo/Landlord
+
+[Package] Multi-tenant Database Schema Manager for Laravel
+
+https://github.com/orchestral/tenanti
+
+Run multiple websites using the same Laravel installation while keeping tenant specific data separated for fully independent multi-domain setups. http://laravel-tenancy.com
+
+https://github.com/hyn/multi-tenant
+
