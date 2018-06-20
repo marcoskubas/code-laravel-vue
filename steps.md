@@ -477,7 +477,7 @@ php artisan migrate:refresh --seed (--verbose verifica erro)
 
 ```
 
-## INTEGRAÇÃO DO MULTI-TENANCY
+## INTEGRAÇÃO DO MULTI-TENANCY (W)
 
 ```
 composer require hipsterjazzbo/landlord:2.0.4
@@ -488,7 +488,7 @@ php artisan make:middleware AddClientTenant
 
 ```
 
-## TESTANDO MULTI-TENANCY
+## TESTANDO MULTI-TENANCY (W)
 
 ```
 php artisan make:migration add_clients_to_bank_accounts --table=bank_accounts
@@ -501,4 +501,15 @@ php artisan migrate:refresh --seed
 
 https://en.wikipedia.org/wiki/Nested_set_model
 
+## CRIANDO TABELA DE CATEGORIAS (W)
 
+https://github.com/lazychaser/laravel-nestedset
+
+```
+composer require kalnoy/nestedset:4.2.0
+
+php artisan make:repository Category
+
+php artisan migrate
+
+```
