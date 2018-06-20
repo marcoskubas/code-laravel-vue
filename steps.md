@@ -476,3 +476,14 @@ php artisan make:seeder ClientsTableSeeder
 php artisan migrate:refresh --seed (--verbose verifica erro)
 
 ```
+
+## INTEGRAÇÃO DO MULTI-TENANCY
+
+```
+composer require hipsterjazzbo/landlord:2.0.4
+
+php artisan vendor:publish --provider="HipsterJazzbo\Landlord\LandlordServiceProvider"
+
+php artisan make:middleware AddClientTenant
+
+```
