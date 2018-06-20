@@ -531,3 +531,10 @@ php artisan make:request CategoryRequest
 php artisan make:presenter Category
 
 ```
+
+## FORMATANDO SERIALIZAÇÃO DE CATEGORIAS (W)
+
+```
+php artisan make:criteria FindRootCategories
+
+```

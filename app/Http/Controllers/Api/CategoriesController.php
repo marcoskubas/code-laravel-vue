@@ -10,6 +10,7 @@ use CodeLaravelVue\Http\Requests\CategoryRequest;
 use CodeLaravelVue\Repositories\CategoryRepository;
 use CodeLaravelVue\Criteria\FindByNameCriteria;
 use CodeLaravelVue\Criteria\FindByLikeAgencyCriteria;
+use CodeLaravelVue\Criteria\FindRootCategoriesCriteria;
 // use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
@@ -40,14 +41,9 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // $this->repository->skipPresenter(true);
-        // $this->repository->setPresenter(CodeLaravelVue\Presenters\MyPresenter::class);
-
-        /*$this->repository->pushCriteria(new FindByNameCriteria('Diegoview'))
-                         ->pushCriteria(new FindByLikeAgencyCriteria('2'));*/
-                         
-        $categories = $this->repository->paginate();
+    {                    
+        $this->repository->pushCriteria(new FindRootCategoriesCriteria());
+        $categories = $this->repository->all();
         return $categories;
     }
 
