@@ -467,3 +467,12 @@ php artisan migrate:refresh --seed
 php artisan make:repository Client (delete migration respectiva em database/migrations)
 
 ```
+
+## CRIANDO CLIENTE MULTI-TENANCY - PARTE 2 (W)
+
+```
+php artisan make:seeder ClientsTableSeeder
+
+php artisan migrate:refresh --seed (--verbose verifica erro)
+
+```
