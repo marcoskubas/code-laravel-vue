@@ -496,3 +496,9 @@ php artisan make:migration add_clients_to_bank_accounts --table=bank_accounts
 php artisan migrate:refresh --seed
 
 ```
+
+# 14 - CATEGORIAS COM NESTED SET MODEL
+
+https://en.wikipedia.org/wiki/Nested_set_model
+
+
