@@ -8,6 +8,7 @@ use CodeLaravelVue\Events\BankStoredEvent;
 use CodeLaravelVue\Listeners\BankAccountSetDefault;
 use Prettus\Repository\Events\RepositoryEntityCreated;
 use Prettus\Repository\Events\RepositoryEntityUpdated;
+use CodeLaravelVue\Listeners\BankLogoUploadListener;
 
 class EventServiceProvider extends ServiceProvider
 {

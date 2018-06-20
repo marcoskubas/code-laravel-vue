@@ -453,3 +453,17 @@ Run multiple websites using the same Laravel installation while keeping tenant s
 
 https://github.com/hyn/multi-tenant
 
+## CRIANDO CLIENTE MULTI-TENANCY - PARTE 1 (W)
+
+```
+php artisan make:migration create_clients_table --create=clients
+
+php artisan migrate
+
+php artisan make:migration add_clients_to_users_table --table=users
+
+php artisan migrate:refresh --seed
+
+php artisan make:repository Client (delete migration respectiva em database/migrations)
+
+```

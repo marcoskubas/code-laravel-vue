@@ -36,3 +36,9 @@ $factory->define(CodeLaravelVue\Models\BankAccount::class, function (Faker\Gener
 		'account' => rand(70000, 260000) . '-' . rand(0, 9)
     ];
 });
+
+$factory->define(CodeLaravelVue\Models\Client::class, function (Faker\Generator $faker) {
+    return [
+		'name' => $faker->name
+    ];
+});
