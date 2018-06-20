@@ -7,6 +7,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use CodeLaravelVue\Repositories\CategoryRepository;
 use CodeLaravelVue\Models\Category;
 use CodeLaravelVue\Validators\CategoryValidator;
+use CodeLaravelVue\Presenters\CategoryPresenter;
 
 /**
  * Class CategoryRepositoryEloquent.
@@ -35,4 +36,7 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
         $this->pushCriteria(app(RequestCriteria::class));
     }
     
+    public function presenter(){
+        return CategoryPresenter::class;
+    }
 }

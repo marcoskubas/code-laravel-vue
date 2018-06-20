@@ -522,3 +522,12 @@ php artisan make:seeder CategoriesTableSeeder
 php artisan migrate:refresh --seed
 
 ```
+
+## VALIDANDO CATEGORIAS (W)
+
+```
+php artisan make:request CategoryRequest
+
+php artisan make:presenter Category
+
+```
