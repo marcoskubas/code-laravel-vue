@@ -42,3 +42,9 @@ $factory->define(CodeLaravelVue\Models\Client::class, function (Faker\Generator 
 		'name' => $faker->name
     ];
 });
+
+$factory->define(CodeLaravelVue\Models\Category::class, function (Faker\Generator $faker) {
+    return [
+		'name' => $faker->name
+    ];
+});

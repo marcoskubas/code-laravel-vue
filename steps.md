@@ -513,3 +513,12 @@ php artisan make:repository Category
 php artisan migrate
 
 ```
+
+## CRIANDO SEEDER DE CATEGORIAS (W)
+
+```
+php artisan make:seeder CategoriesTableSeeder
+
+php artisan migrate:refresh --seed
+
+```

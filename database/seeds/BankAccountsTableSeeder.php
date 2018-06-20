@@ -5,6 +5,7 @@ use Illuminate\Database\Query\Builder;
 
 class BankAccountsTableSeeder extends Seeder
 {
+    use CodeLaravelVue\Repositories\Traits\GetClientsTrait;
     /**
      * Run the database seeds.
      *
@@ -44,11 +45,5 @@ class BankAccountsTableSeeder extends Seeder
         $repository->skipPresenter(true);
         $banks         = $repository->all();
         return $banks;
-    }
-
-    private function getClients(){
-        $repository = app(\CodeLaravelVue\Repositories\ClientRepository::class);
-        $clients    = $repository->all();
-        return $clients;
     }
 }

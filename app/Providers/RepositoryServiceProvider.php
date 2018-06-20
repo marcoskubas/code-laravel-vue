@@ -27,6 +27,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\CodeLaravelVue\Repositories\BankRepository::class, \CodeLaravelVue\Repositories\BankRepositoryEloquent::class);
         $this->app->bind(\CodeLaravelVue\Repositories\BankAccountRepository::class, \CodeLaravelVue\Repositories\BankAccountRepositoryEloquent::class);
         $this->app->bind(\CodeLaravelVue\Repositories\ClientRepository::class, \CodeLaravelVue\Repositories\ClientRepositoryEloquent::class);
+        $this->app->bind(\CodeLaravelVue\Repositories\CategoryRepository::class, \CodeLaravelVue\Repositories\CategoryRepositoryEloquent::class);
         //:end-bindings:
     }
 }
