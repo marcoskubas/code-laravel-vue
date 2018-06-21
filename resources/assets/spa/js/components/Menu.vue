@@ -48,6 +48,7 @@
 			return {
 				menus: [
 					{name: 'Conta bancária', routeName: 'bank-account.list', url : 'bank-account.list'},
+					{name: 'Categoria', routeName: 'category.list', url : 'category.list'},
 				],
 				menusDropdown: [],
 				user : Auth.user
