@@ -5,12 +5,13 @@
 		</page-title>
 
 		<div class="card-panel z-depth-5">
-            <select-material :options="options" :selected.sync="selected"></select-material>
-            {{selected}}
 			<category-tree :categories="categories"></category-tree>
 		</div>
 
-		<category-save :modal-options="modalOptionsSave" :category.sync="categorySave" @save-category="saveCategory">
+		<category-save :modal-options="modalOptionsSave"
+                       :category.sync="categorySave"
+                       :cp-options="cpOptions"
+                       @save-category="saveCategory">
 			<span slot="title">{{ title }}</span>
 			<div slot="footer">
                 <button class="btn btn-flat waves-effect waves-red modal-close modal-action">Cancelar</button>
@@ -33,18 +34,17 @@
 	import CategoryTreeComponent from './CategoryTree.vue';
 	import CategorySaveComponent from './CategorySave.vue';
 	import {Category} from "../../services/resources";
-	import SelectMaterialComponent from "../../../../_default/components/SelectMaterial.vue";
 
     export default {
 		components: {
 			'page-title' 	: PageTitleComponent,
 			'category-tree' : CategoryTreeComponent,
-			'category-save' : CategorySaveComponent,
-            'select-material' : SelectMaterialComponent
+			'category-save' : CategorySaveComponent
 		},
 		data(){
 		    return {
 		        categories: [],
+                categoriesFormatted: [],
 				categorySave: {
 		            id: 0,
 					name: '',
@@ -67,6 +67,15 @@
                 selected: 6
 			}
 		},
+        computed: {
+		    //options para o campo select2 de categoria pai
+            //categoryParentOptions
+            cpOptions(){
+                return {
+                    data: this.categoriesFormatted
+                }
+            }
+        },
 		created(){
 		    this.getCategories();
 		},
@@ -74,6 +83,7 @@
 		    getCategories(){
 		        Category.query().then(response => {
 		            this.categories = response.data.data;
+		            this.formatCategories();
 				});
 			},
 			saveCategory(){
@@ -86,7 +96,15 @@
 			modalEdit(category){
                 this.categorySave = category;
                 $(`#${this.modalOptionsSave.id}`).modal('open');
-			}
+			},
+            formatCategories(){
+		        for(let category of this.categories){
+		            this.categoriesFormatted.push({
+                        id: category.id,
+                        text: category.name
+                    });
+                }
+            }
 		},
 		events: {
 		    'category-new' (category){
