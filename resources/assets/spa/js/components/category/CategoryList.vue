@@ -5,7 +5,7 @@
 		</page-title>
 
 		<div class="card-panel z-depth-5">
-			
+			<category-tree :categories="categories"></category-tree>
 		</div>
 
 		<div class="fixed-action-btn">
@@ -18,10 +18,28 @@
 
 <script type="text/javascript">
 	import PageTitleComponent from '../PageTitle.vue';
+	import CategoryTreeComponent from './CategoryTree.vue';
+	import {Category} from "../../services/resources";
 
-	export default {
+    export default {
 		components: {
-			'page-title' : PageTitleComponent
+			'page-title' 	: PageTitleComponent,
+			'category-tree' : CategoryTreeComponent,
+		},
+		data(){
+		    return {
+		        categories: []
+			}
+		},
+		created(){
+		    this.getCategories();
+		},
+		methods: {
+		    getCategories(){
+		        Category.query().then(response => {
+		            this.categories = response.data.data;
+				});
+			}
 		}
 	}
 </script>
