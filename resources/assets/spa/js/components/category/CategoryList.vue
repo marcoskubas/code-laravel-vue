@@ -8,6 +8,16 @@
 			<category-tree :categories="categories"></category-tree>
 		</div>
 
+		<category-save :modal-options="modalOptionsSave" :category-sync="categorySave" @save-category="saveCategory">
+			<span slot="title">{{ title }}</span>
+			<div slot="footer">
+				<button type="submit" class="btn btn-flat waves-effect freen lighten-2 modal-close modal-action">
+					OK
+				</button>
+				<button class="btn btn-flat waves-effect waves-red modal-close modal-action">Cancelar</button>
+			</div>
+		</category-save>
+
 		<div class="fixed-action-btn">
 			<a class="btn-floating btn-large" v-link="{name: 'bank-account.create'}">
 				<i class="large material-icons">add</i>
@@ -19,16 +29,22 @@
 <script type="text/javascript">
 	import PageTitleComponent from '../PageTitle.vue';
 	import CategoryTreeComponent from './CategoryTree.vue';
+	import CategorySaveComponent from './CategorySave.vue';
 	import {Category} from "../../services/resources";
 
     export default {
 		components: {
 			'page-title' 	: PageTitleComponent,
 			'category-tree' : CategoryTreeComponent,
+			'category-save' : CategorySaveComponent,
 		},
 		data(){
 		    return {
-		        categories: []
+		        categories: [],
+				title: 'Adicionar categoria',
+				modalOptionsSave: {
+		            id: 'modal-category-save'
+				}
 			}
 		},
 		created(){
@@ -39,6 +55,9 @@
 		        Category.query().then(response => {
 		            this.categories = response.data.data;
 				});
+			},
+			saveCategory(){
+		        console.log('saveCategory teste');
 			}
 		}
 	}
