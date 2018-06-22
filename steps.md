@@ -544,3 +544,10 @@ php artisan make:criteria FindRootCategories
 ## ESTILIZANDO CATEGORIAS
 
 https://materializecss.com/collections.html
+
+## INICIANDO COM SELECT2
+
+```
+sudo npm install select2@4.0.3 --save-dev
+
+```

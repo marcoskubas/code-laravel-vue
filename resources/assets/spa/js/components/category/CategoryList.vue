@@ -5,16 +5,18 @@
 		</page-title>
 
 		<div class="card-panel z-depth-5">
+            <select-material :options="options" :selected.sync="selected"></select-material>
+            {{selected}}
 			<category-tree :categories="categories"></category-tree>
 		</div>
 
 		<category-save :modal-options="modalOptionsSave" :category.sync="categorySave" @save-category="saveCategory">
 			<span slot="title">{{ title }}</span>
 			<div slot="footer">
-				<button type="submit" class="btn btn-flat waves-effect freen lighten-2 modal-close modal-action green-text">
+                <button class="btn btn-flat waves-effect waves-red modal-close modal-action">Cancelar</button>
+                <button type="submit" class="btn btn-flat waves-effect green lighten-2 modal-close modal-action">
 					OK
-				</button>
-				<button class="btn btn-flat waves-effect waves-red modal-close modal-action">Cancelar</button>
+                </button>
 			</div>
 		</category-save>
 
@@ -31,12 +33,14 @@
 	import CategoryTreeComponent from './CategoryTree.vue';
 	import CategorySaveComponent from './CategorySave.vue';
 	import {Category} from "../../services/resources";
+	import SelectMaterialComponent from "../../../../_default/components/SelectMaterial.vue";
 
     export default {
 		components: {
 			'page-title' 	: PageTitleComponent,
 			'category-tree' : CategoryTreeComponent,
 			'category-save' : CategorySaveComponent,
+            'select-material' : SelectMaterialComponent
 		},
 		data(){
 		    return {
@@ -49,7 +53,18 @@
 				title: 'Adicionar categoria',
 				modalOptionsSave: {
 		            id: 'modal-category-save'
-				}
+				},
+                options: {
+		            data: [
+                        {id: 1, text: 'Valor 1'},
+                        {id: 2, text: 'Valor 2'},
+                        {id: 3, text: 'Valor 3'},
+                        {id: 4, text: 'Valor 4'},
+                        {id: 5, text: 'Valor 5'},
+                        {id: 6, text: 'Valor 6'},
+                    ]
+                },
+                selected: 6
 			}
 		},
 		created(){
