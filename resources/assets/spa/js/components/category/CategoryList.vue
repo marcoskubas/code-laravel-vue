@@ -8,10 +8,10 @@
 			<category-tree :categories="categories"></category-tree>
 		</div>
 
-		<category-save :modal-options="modalOptionsSave" :category-sync="categorySave" @save-category="saveCategory">
+		<category-save :modal-options="modalOptionsSave" :category.sync="categorySave" @save-category="saveCategory">
 			<span slot="title">{{ title }}</span>
 			<div slot="footer">
-				<button type="submit" class="btn btn-flat waves-effect freen lighten-2 modal-close modal-action">
+				<button type="submit" class="btn btn-flat waves-effect freen lighten-2 modal-close modal-action green-text">
 					OK
 				</button>
 				<button class="btn btn-flat waves-effect waves-red modal-close modal-action">Cancelar</button>
@@ -41,6 +41,11 @@
 		data(){
 		    return {
 		        categories: [],
+				categorySave: {
+		            id: 0,
+					name: '',
+					parent_id: 0
+				},
 				title: 'Adicionar categoria',
 				modalOptionsSave: {
 		            id: 'modal-category-save'
@@ -58,7 +63,23 @@
 			},
 			saveCategory(){
 		        console.log('saveCategory teste');
+			},
+			modalNew(category){
+		        this.categorySave = category;
+		        $(`#${this.modalOptionsSave.id}`).modal('open');
+			},
+			modalEdit(category){
+                this.categorySave = category;
+                $(`#${this.modalOptionsSave.id}`).modal('open');
 			}
+		},
+		events: {
+		    'category-new' (category){
+				this.modalNew(category);
+			},
+            'category-edit' (category){
+                this.modalEdit(category);
+            }
 		}
 	}
 </script>
