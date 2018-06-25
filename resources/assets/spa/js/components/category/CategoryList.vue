@@ -34,6 +34,7 @@
 	import CategoryTreeComponent from './CategoryTree.vue';
 	import CategorySaveComponent from './CategorySave.vue';
 	import {Category} from "../../services/resources";
+	import {CategoryFormat} from "../../services/categoryNsm";
 
     export default {
 		components: {
@@ -98,12 +99,14 @@
                 $(`#${this.modalOptionsSave.id}`).modal('open');
 			},
             formatCategories(){
-		        for(let category of this.categories){
+            	this.categoriesFormatted = CategoryFormat.getCategoriesFormatted(this.categories);
+
+		        /*for(let category of this.categories){
 		            this.categoriesFormatted.push({
                         id: category.id,
                         text: category.name
                     });
-                }
+                }*/
             }
 		},
 		events: {
