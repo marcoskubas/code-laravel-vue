@@ -73,7 +73,15 @@
             //categoryParentOptions
             cpOptions(){
                 return {
-                    data: this.categoriesFormatted
+                    data: this.categoriesFormatted,
+                    templateResult(category){
+                    	let margin = '&nbsp;'.repeat(category.level * 6);
+                    	let text   = category.hasChildren ? `<strong>${category.text}</strong>` : category.text;
+                    	return `${margin}${text}`;
+                    },
+                    escapeMarkup(m){
+                    	return m;
+                    }
                 }
             }
         },
@@ -100,13 +108,6 @@
 			},
             formatCategories(){
             	this.categoriesFormatted = CategoryFormat.getCategoriesFormatted(this.categories);
-
-		        /*for(let category of this.categories){
-		            this.categoriesFormatted.push({
-                        id: category.id,
-                        text: category.name
-                    });
-                }*/
             }
 		},
 		events: {

@@ -11,6 +11,7 @@ use CodeLaravelVue\Repositories\CategoryRepository;
 use CodeLaravelVue\Criteria\FindByNameCriteria;
 use CodeLaravelVue\Criteria\FindByLikeAgencyCriteria;
 use CodeLaravelVue\Criteria\FindRootCategoriesCriteria;
+use CodeLaravelVue\Criteria\WithDepthCategoriesCriteria;
 // use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
@@ -42,7 +43,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {                    
-        $this->repository->pushCriteria(new FindRootCategoriesCriteria());
+        $this->repository->pushCriteria(new FindRootCategoriesCriteria())
+        ->pushCriteria(new WithDepthCategoriesCriteria());
         $categories = $this->repository->all();
         return $categories;
     }

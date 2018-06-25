@@ -6,11 +6,11 @@ use Prettus\Repository\Contracts\CriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Class FindRootCategoriesCriteria.
+ * Class WithDepthCategoriesCriteria.
  *
  * @package namespace CodeLaravelVue\Criteria;
  */
-class FindRootCategoriesCriteria implements CriteriaInterface
+class WithDepthCategoriesCriteria implements CriteriaInterface
 {
     /**
      * Apply criteria in query repository
@@ -22,6 +22,6 @@ class FindRootCategoriesCriteria implements CriteriaInterface
      */
     public function apply($model, RepositoryInterface $repository)
     {
-        return $model->whereIsRoot();
+        return $model->withDepth();
     }
 }
