@@ -43,7 +43,7 @@ export class CategoryService{
 			delete categoryCopy.parent_id;
 		}
 
-		Category.save(categoryCopy).then(response => {
+		return Category.save(categoryCopy).then(response => {
 			let categoryAdded = response.data.data;
 			if(categoryAdded.parent_id === null){
 				categories.push(categoryAdded);
