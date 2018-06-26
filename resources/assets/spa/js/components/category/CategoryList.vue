@@ -22,9 +22,9 @@
 		</category-save>
 
 		<div class="fixed-action-btn">
-			<a class="btn-floating btn-large" v-link="{name: 'bank-account.create'}">
+			<button class="btn-floating btn-large" @click="modalNew(null)">
 				<i class="large material-icons">add</i>
-			</a>
+			</button>
 		</div>
 	</div>
 </template>
@@ -34,7 +34,7 @@
 	import CategoryTreeComponent from './CategoryTree.vue';
 	import CategorySaveComponent from './CategorySave.vue';
 	import {Category} from "../../services/resources";
-	import {CategoryFormat} from "../../services/categoryNsm";
+	import {CategoryFormat, CategoryService} from "../../services/categoryNsm";
 
     export default {
 		components: {
@@ -51,21 +51,11 @@
 					name: '',
 					parent_id: 0
 				},
-				title: 'Adicionar categoria',
+				parent: null,
+				title: '',
 				modalOptionsSave: {
 		            id: 'modal-category-save'
-				},
-                options: {
-		            data: [
-                        {id: 1, text: 'Valor 1'},
-                        {id: 2, text: 'Valor 2'},
-                        {id: 3, text: 'Valor 3'},
-                        {id: 4, text: 'Valor 4'},
-                        {id: 5, text: 'Valor 5'},
-                        {id: 6, text: 'Valor 6'},
-                    ]
-                },
-                selected: 6
+				}
 			}
 		},
         computed: {
@@ -96,14 +86,22 @@
 				});
 			},
 			saveCategory(){
-		        console.log('saveCategory teste');
+		        CategoryService.new(this.categorySave, this.parent, this.categories).then(response => {
+
+		        });
 			},
 			modalNew(category){
+				this.title = 'Nova Categoria';
 		        this.categorySave = category;
 		        $(`#${this.modalOptionsSave.id}`).modal('open');
 			},
 			modalEdit(category){
-                this.categorySave = category;
+                this.categorySave = {
+                	id: 0,
+                	name: '',
+                	parent_id: category === null ? null : category.parent_id
+                };
+                this.parent = category;
                 $(`#${this.modalOptionsSave.id}`).modal('open');
 			},
             formatCategories(){
