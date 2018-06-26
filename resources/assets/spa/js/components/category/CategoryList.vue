@@ -14,7 +14,7 @@
                        @save-category="saveCategory">
 			<span slot="title">{{ title }}</span>
 			<div slot="footer">
-                <button class="btn btn-flat waves-effect waves-red modal-close modal-action">Cancelar</button>
+                <button type="button" class="btn btn-flat waves-effect waves-red modal-close modal-action">Cancelar</button>
                 <button type="submit" class="btn btn-flat waves-effect green lighten-2 modal-close modal-action">
 					OK
                 </button>
@@ -101,7 +101,14 @@
                 this.parent = category;
 		        $(`#${this.modalOptionsSave.id}`).modal('open');
 			},
-			modalEdit(category){
+			modalEdit(category, parent){
+				this.title = 'Editar Categoria';
+				this.categorySave = {
+                	id 	 		: category.id,
+                	name 		: category.name,
+                	parent_id 	: category.parent_id
+                };
+                this.parent = parent;
                 $(`#${this.modalOptionsSave.id}`).modal('open');
 			},
             formatCategories(){
@@ -121,8 +128,8 @@
 		    'category-new' (category){
 				this.modalNew(category);
 			},
-            'category-edit' (category){
-                this.modalEdit(category);
+            'category-edit' (category, parent){
+                this.modalEdit(category, parent);
             }
 		}
 	}

@@ -27,8 +27,8 @@ class AddClientsToBankAccounts extends Migration
     public function down()
     {
         Schema::table('bank_accounts', function (Blueprint $table) {
-            // $table->dropForeign('bank_accounts_client_id_foreign');
-            // $table->dropColumn('client_id');
+            $table->dropForeign('bank_accounts_client_id_foreign');
+            $table->dropColumn('client_id');
         });
     }
 }
