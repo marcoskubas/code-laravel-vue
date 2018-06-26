@@ -18,6 +18,7 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
 {
     public function create(array $attributes){
 
+        Category::$enableTenant = false;
         if(isset($attributes['parent_id'])){
             //child
             $skipPresenter = $this->skipPresenter;
@@ -26,16 +27,20 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
             $this->skipPresenter = $skipPresenter;
             $child = $parent->children()->create($attributes);
 
-            return $this->parserResult($child);
+            $result = $this->parserResult($child);
 
         }else{
             //parent
-            return parent::create($attributes);
+            $result = parent::create($attributes);
         }
+
+        Category::$enableTenant = true;
+        return $result;
     }
 
     public function update(array $attributes, $id){
         
+        Category::$enableTenant = false;
         if(isset($attributes['parent_id'])){
             //child
             $skipPresenter = $this->skipPresenter;
@@ -45,12 +50,15 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
             $child->save();
             $this->skipPresenter = $skipPresenter;
 
-            return $this->parserResult($child);
+            $result = $this->parserResult($child);
 
         }else{
             //parent
-            return parent::update($attributes, $id);
+            $result = parent::update($attributes, $id);
         }
+
+        Category::$enableTenant = true;
+        return $result;
     }
 
     /**

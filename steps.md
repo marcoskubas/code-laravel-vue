@@ -555,3 +555,10 @@ sudo npm install select2@4.0.3 --save-dev
 ## SELECT2 ESTILO MATERIALIZE CSS
 
 https://github.com/codeedu/select2-materialize
+
+## CONFLITO ENTRE MULTITENANCY E NESTED SET MODEL (W)
+
+```
+php artisan migrate:refresh --seed
+
+```
