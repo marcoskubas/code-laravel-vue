@@ -88,7 +88,7 @@
 			},
 			saveCategory(){
 		        CategoryService.save(this.categorySave, this.parent, this.categories, this.category).then(response => {
-		            if(this.categorySave === 0){
+		            if(this.categorySave.id === 0){
                         Materialize.toast('Categoria adicionada com sucesso!', 4000);
                     }else{
                         Materialize.toast('Categoria alterada com sucesso!', 4000);

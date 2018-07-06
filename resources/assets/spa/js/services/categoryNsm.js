@@ -90,7 +90,7 @@ export class CategoryService{
                     /**
                      * Trocar categoria de pai
                      */
-                    if(parent.id != categoryUpdated.parent.id){
+                    if(parent.id != categoryUpdated.parent_id){
                     	parent.children.data.$remove(categoryOriginal);
                     	self._addChild(categoryUpdated, categories);
                         return response;
@@ -131,12 +131,19 @@ export class CategoryService{
 	}
 
     static _findParent(id, categories){
-		for(let category off categories){
+		let result = null;
+		for(let category of categories){
 			if(id == category.id){
-				return category;
+				result = category;
+				break;
+			}
+            result = this._findParent(id, category.children.data);
+			if(result !== null){
+				break;
 			}
 		}
-		return this._findParent(id, category.children.data);
+
+		return result;
 	}
 
 }
