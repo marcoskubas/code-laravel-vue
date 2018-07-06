@@ -13,10 +13,10 @@
                         <a href="#" @click.prevent="categoryEdit(o)">Editar</a>
                     </li>
                     <li>
-                        <a href="#">Remover</a>
+                        <a href="#" @click.prevent="categoryDelete(o)">Remover</a>
                     </li>
                 </ul>
-                <span class="valign">{{{ categoryText(o) }}}</span>
+                <span class="valign">{{{ categoryText(o)}}}</span>
             </div>
             <category-tree :categories="o.children.data" :parent="o"></category-tree>
         </li>
@@ -70,6 +70,9 @@
             },
             categoryEdit(category){
                 this.$dispatch('category-edit', category, this.parent);
+            },
+            categoryDelete(category){
+                this.$dispatch('category-delete', category, this.parent);
             }
         }
     }
