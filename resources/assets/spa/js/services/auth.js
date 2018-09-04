@@ -26,7 +26,7 @@ export default {
 		},
 		get data(){
 			if(!this._data){
-				this._data = LocalStorage.get(USER);
+				this._data = LocalStorage.getObject(USER);
 			}
 			return this._data;
 		},

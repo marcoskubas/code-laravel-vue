@@ -570,3 +570,9 @@ php artisan migrate:refresh --seed
 https://vuex.vuejs.org/ptbr/
 
 http://facebook.github.io/flux/
+
+## PRIMEIRO ESTADO DA APLICAÇÃO
+
+```
+npm install vuex@~2.1.1 --save-dev
+```
