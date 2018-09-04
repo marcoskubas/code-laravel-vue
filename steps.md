@@ -562,3 +562,11 @@ https://github.com/codeedu/select2-materialize
 php artisan migrate:refresh --seed
 
 ```
+
+# 16 - VUEX
+
+## VUEX
+
+https://vuex.vuejs.org/ptbr/
+
+http://facebook.github.io/flux/
