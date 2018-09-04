@@ -42,6 +42,7 @@
 </template>
 
 <script type="text/javascript">
+    import store from '../store';
 	import Auth from '../services/auth';
 	export default {
 		data(){
@@ -56,7 +57,8 @@
 		},
 		computed:{
 			name(){
-				return this.user.data ? this.user.data.name : ''
+				// return this.user.data ? this.user.data.name : ''
+				return store.state.user.name;
 			}
 		},
 		ready(){
