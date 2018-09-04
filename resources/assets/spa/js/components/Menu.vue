@@ -43,7 +43,6 @@
 
 <script type="text/javascript">
     import store from '../store';
-	import Auth from '../services/auth';
 	export default {
 		data(){
 			return {
@@ -51,13 +50,11 @@
 					{name: 'Conta bancária', routeName: 'bank-account.list', url : 'bank-account.list'},
 					{name: 'Categoria', routeName: 'category.list', url : 'category.list'},
 				],
-				menusDropdown: [],
-				user : Auth.user
+				menusDropdown: []
 			}
 		},
 		computed:{
 			name(){
-				// return this.user.data ? this.user.data.name : ''
 				return store.state.user.name;
 			}
 		},

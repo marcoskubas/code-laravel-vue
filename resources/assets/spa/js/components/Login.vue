@@ -41,7 +41,8 @@
 </template>
 
 <script type="text/javascript">
-    import Auth from  '../services/auth';
+    // import Auth from  '../services/auth';
+    import store from '../store';
     export default {
         data(){
             return {
@@ -56,10 +57,8 @@
             }
         },
         methods : {
-            login(){;
-                Auth.login(this.user.email, this.user.password)
-                .then(() => {
-                    console.log('dashboard');
+            login(){
+                store.dispatch('login', this.user).then(() => {
                     this.$router.go({name: 'dashboard'});
                 })
                 .catch((responseError) => {
@@ -68,12 +67,13 @@
                             this.error.message = responseError.data.message;
                             break;
                         default:
-                            this.error.message = 'Login Failed';    
+                            this.error.message = 'Login Failed';
                             break;
                     }
                     this.error.error = true;
                     console.log(responseError);
                 });
+                // Auth.login(this.user.email, this.user.password)
             }
         }
     }
