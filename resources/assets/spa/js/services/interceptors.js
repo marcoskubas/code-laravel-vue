@@ -1,4 +1,4 @@
-import store from '../store';
+import store from '../store/store';
 import JwtToken from './jwtToken';
 import AppConfig from './appConfig';
 

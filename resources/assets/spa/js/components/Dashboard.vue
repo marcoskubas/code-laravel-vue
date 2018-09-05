@@ -17,11 +17,11 @@
 </template>
 
 <script>
-    import store from '../store';
+    import store from '../store/store';
     export default {
         computed : {
             user(){
-                return store.state.user;
+                return store.state.auth.user;
             }
         },
         methods: {

@@ -1,7 +1,6 @@
-import JwtToken from './services/jwtToken';
-import LocalStorage from './services/localStorage';
-import {User} from './services/resources';
-import Vuex from 'vuex';
+import JwtToken from '../services/jwtToken';
+import LocalStorage from '../services/localStorage';
+import {User} from '../services/resources';
 
 const USER  = 'user';
 
@@ -11,20 +10,20 @@ const state = {
 };
 
 const mutations = {
-  setUser(state, user){
-      state.user = user;
-      if(user != null){
-          LocalStorage.setObject(USER, user);
-      }else{
-          LocalStorage.remove(USER);
-      }
-  },
-  authenticaded(state){
-      state.check = true
-  },
-  unauthenticaded(state){
-    state.check = false;
-  }
+    setUser(state, user){
+        state.user = user;
+        if(user != null){
+            LocalStorage.setObject(USER, user);
+        }else{
+            LocalStorage.remove(USER);
+        }
+    },
+    authenticaded(state){
+        state.check = true
+    },
+    unauthenticaded(state){
+        state.check = false;
+    }
 };
 
 const actions = {
@@ -56,4 +55,8 @@ const actions = {
     }
 };
 
-export default new Vuex.Store({state, mutations, actions});
+const module = {
+    state, mutations, actions
+}
+
+export default module;
