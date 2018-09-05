@@ -13,10 +13,17 @@ const state = {
 const mutations = {
   setUser(state, user){
       state.user = user;
-      LocalStorage.setObject(USER, user);
+      if(user != null){
+          LocalStorage.setObject(USER, user);
+      }else{
+          LocalStorage.remove(USER);
+      }
   },
   authenticaded(state){
       state.check = true
+  },
+  unauthenticaded(state){
+    state.check = false;
   }
 };
 
@@ -33,56 +40,20 @@ const actions = {
             .then((response) => {
                 context.commit('setUser', response.data);
             });
+    },
+    clearAuth(context){
+        context.commit('unauthenticaded');
+        context.commit('setUser', null);
+    },
+    logout(context){
+        let afterLogout = (response) => {
+            context.dispatch('clearAuth');
+            return response;
+        };
+        return JwtToken.revokeToken()
+            .then(afterLogout)
+            .catch(afterLogout);
     }
 };
 
 export default new Vuex.Store({state, mutations, actions});
-
-/*
-const afterLogin = function(response){
-    this.user.check = true;
-    User.get()
-        .then((response) => {
-            this.user.data = response.data;
-        });
-}
-
-export default {
-    user : {
-        set data(value){
-            if(!value){
-                LocalStorage.remove(USER)
-                this._data = null;
-                return;
-            }else{
-                this._data = value;
-                LocalStorage.setObject(USER, value);
-            }
-        },
-        get data(){
-            if(!this._data){
-                this._data = LocalStorage.get(USER);
-            }
-            return this._data;
-        },
-        check : JwtToken.token ? true : false
-    },
-    login(email, password){
-        return JwtToken.accessToken(email, password).then((response) => {
-            let afterLoginContext = afterLogin.bind(this);
-            afterLoginContext(response);
-            return response;
-        });
-    },
-    logout(){
-        let afterLogout = (response) => {
-            this.clearAuth();
-            return response;
-        };
-        return JwtToken.revokeToken().then(afterLogout).catch(afterLogout);
-    },
-    clearAuth(){
-        this.user.data  = null;
-        this.user.check = false;
-    }
-}*/

@@ -1,4 +1,4 @@
-import Auth from './auth';
+import store from '../store';
 import JwtToken from './jwtToken';
 import AppConfig from './appConfig';
 
@@ -15,7 +15,7 @@ Vue.http.interceptors.push((request, next) => {
 					return Vue.http(request);
 				})
 				.catch(() => {
-					Auth.clearAuth();
+					store.dispatch('clearAuth');
 					window.location.href = AppConfig.login_url;
 				});
 		}
