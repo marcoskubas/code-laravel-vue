@@ -59,6 +59,19 @@ const actions = {
     queryWithFilter(context){
         console.log('queryWithFilter');
         context.dispatch('query');
+    },
+    'delete'(context){
+        let id = context.state.bankAccountDelete.id;
+        BankAccount.delete({id : id}).then((response) => {
+            context.commit('delete');
+            context.commit('setDelete', null);
+            let bankAccounts = context.state.bankAccounts;
+            let pagination   = context.state.searchOptions.pagination;
+            if(bankAccounts.length === 0 && pagination.current_page > 0){
+                context.commit('setCurrentPage', pagination.current_page--);
+            }
+            return response;
+        });
     }
 };
 
