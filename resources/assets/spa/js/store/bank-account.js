@@ -50,7 +50,7 @@ const mutations = {
 const actions = {
     query(context){
         let searchOptions = context.state.searchOptions;
-        BankAccount.query(searchOptions.createOptions()).then((response) => {
+        return BankAccount.query(searchOptions.createOptions()).then((response) => {
             console.log(response.data.data);
             context.commit('set', response.data.data);
             // context.commit('setPagination', response.data.meta.pagination);

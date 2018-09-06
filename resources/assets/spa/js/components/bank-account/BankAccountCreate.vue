@@ -1,7 +1,7 @@
 <template src="./_form.html"></template>
 
 <script type="text/javascript">
-    import {BankAccount, Bank} from "../../services/resources";
+    import {BankAccount} from "../../services/resources";
     import PageTitleComponent from '../PageTitle.vue';
     import 'materialize-autocomplete';
     import _ from 'lodash';
@@ -28,6 +28,9 @@
             };
         },
         computed: {
+            banks(){
+                return store.state.bank.banks;
+            },
             bankAccount(){
                 return store.state.bankAccount.bankAccountSave;
             }
@@ -46,8 +49,7 @@
                 });
             },
             getBanks(){
-                Bank.query().then((response) => {
-                    this.banks = response.data.data;
+                store.dispatch('bank/query').then((response) => {
                     this.initAutocomplete();
                 });
             },
