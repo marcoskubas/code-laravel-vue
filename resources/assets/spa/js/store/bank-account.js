@@ -4,10 +4,20 @@ import SearchOptions from '../services/search-options';
 const state = {
     bankAccounts : [],
     bankAccountDelete: null,
+    bankAccountSave: {
+        name     : 'minha conta',
+        agency   : '',
+        account  : '',
+        bank_id  : '',
+        'default': false
+    },
     searchOptions: new SearchOptions('bank')
 };
 
 const mutations = {
+    updateName(state, name){
+        state.bankAccountSave.name = name;
+    },
     set(state, bankAccounts){
         state.bankAccounts = bankAccounts;
     },
@@ -48,16 +58,13 @@ const actions = {
     },
     queryWithSortBy(context, key){
         context.commit('setOrder', key);
-        console.log('queryWithSortBy');
         context.dispatch('query');
     },
     queryWithPagination(context, currentPage){
-        console.log('queryWithPagination');
         context.commit('setCurrentPage', currentPage);
         context.dispatch('query');
     },
     queryWithFilter(context){
-        console.log('queryWithFilter');
         context.dispatch('query');
     },
     'delete'(context){

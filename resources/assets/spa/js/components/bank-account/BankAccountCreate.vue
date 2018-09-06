@@ -5,6 +5,7 @@
     import PageTitleComponent from '../PageTitle.vue';
     import 'materialize-autocomplete';
     import _ from 'lodash';
+    import store from '../../store/store';
 
     export default {
         components: {
@@ -26,10 +27,18 @@
                 banks: []
             };
         },
+        computed: {
+            bankAccount(){
+                return store.state.bankAccount.bankAccountSave;
+            }
+        },
         created(){
             this.getBanks();
         },
         methods: {
+            updateName(event){
+              store.commit('updateName', event.target.value);
+            },
             submit(){
                 BankAccount.save({}, this.bankAccount).then(() => {
                     Materialize.toast('Conta bancária criada com sucesso!', 4000);
