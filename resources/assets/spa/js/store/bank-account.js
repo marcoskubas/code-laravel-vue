@@ -79,6 +79,11 @@ const actions = {
             }
             return response;
         });
+    },
+    save(context, bankAccount){
+        return BankAccount.save({}, bankAccount).then((response) => {
+            return response;
+        });
     }
 };
 

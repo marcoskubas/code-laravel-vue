@@ -1,7 +1,6 @@
 <template src="./_form.html"></template>
 
 <script type="text/javascript">
-    import {BankAccount} from "../../services/resources";
     import PageTitleComponent from '../PageTitle.vue';
     import 'materialize-autocomplete';
     import store from '../../store/store';
@@ -22,8 +21,7 @@
                 },
                 bank: {
                     name: ""
-                },
-                banks: []
+                }
             };
         },
         computed: {
@@ -39,7 +37,7 @@
               store.commit('updateName', event.target.value);
             },
             submit(){
-                BankAccount.save({}, this.bankAccount).then(() => {
+                store.dispatch('bankAccount/save', this.bankAccount).then(() => {
                     Materialize.toast('Conta bancária criada com sucesso!', 4000);
                     this.$router.go({name: 'bank-account.list'});
                 });
