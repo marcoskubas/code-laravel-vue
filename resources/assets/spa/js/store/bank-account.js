@@ -5,7 +5,7 @@ const state = {
     bankAccounts : [],
     bankAccountDelete: null,
     bankAccountSave: {
-        name     : 'minha conta',
+        name     : '',
         agency   : '',
         account  : '',
         bank_id  : '',
