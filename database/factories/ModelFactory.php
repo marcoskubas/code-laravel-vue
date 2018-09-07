@@ -43,8 +43,13 @@ $factory->define(CodeLaravelVue\Models\Client::class, function (Faker\Generator 
     ];
 });
 
-$factory->define(CodeLaravelVue\Models\Category::class, function (Faker\Generator $faker) {
+$factory->define(\CodeLaravelVue\Models\CategoryExpense::class, function (Faker\Generator $faker) {
     return [
-		'name' => $faker->name
+        'name' => $faker->name
+    ];
+});
+$factory->define(\CodeLaravelVue\Models\CategoryRevenue::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name
     ];
 });

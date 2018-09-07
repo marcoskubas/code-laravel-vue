@@ -2,32 +2,31 @@
 
 namespace CodeLaravelVue\Transformers;
 
+use CodeLaravelVue\Models\AbstractCategory;
 use League\Fractal\TransformerAbstract;
-use CodeLaravelVue\Models\Category;
 
 /**
- * Class CategoryTransformer.
- *
+ * Class CategoryTransformer
  * @package namespace CodeLaravelVue\Transformers;
  */
 class CategoryTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = ['children'];
-    
+
     /**
-     * Transform the Category entity.
-     *
-     * @param \CodeLaravelVue\Models\Category $model
+     * Transform the \Category entity
+     * @param \Category $model
      *
      * @return array
      */
-    public function transform(Category $model)
+    public function transform(AbstractCategory $model)
     {
         return [
-            'id'         => (int) $model->id,
-            'name'       => $model->name,
-            'parent_id'  => $model->parent_id,
-            'depth'      => $model->depth,
+            'id' => (int)$model->id,
+            'name' => $model->name,
+            'parent_id' => $model->parent_id,
+            'depth' => $model->depth,
+
             /* place your other model properties here */
 
             'created_at' => $model->created_at,
@@ -35,10 +34,9 @@ class CategoryTransformer extends TransformerAbstract
         ];
     }
 
-    public function includeChildren(Category $model){
+    public function includeChildren(AbstractCategory $model)
+    {
         $children = $model->children()->withDepth()->get();
-        // if($model->children){
-            return $this->collection($children, new CategoryTransformer());
-        // }
+        return $this->collection($children, new CategoryTransformer());
     }
 }

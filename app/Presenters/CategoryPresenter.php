@@ -1,12 +1,9 @@
 <?php
-
 namespace CodeLaravelVue\Presenters;
-
 use CodeLaravelVue\Transformers\CategoryTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
-
 /**
- * Class CategoryPresenter.
+ * Class CategoryPresenter
  *
  * @package namespace CodeLaravelVue\Presenters;
  */

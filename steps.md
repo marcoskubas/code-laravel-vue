@@ -343,7 +343,7 @@ php artisan migrate:refresh --seed
 ## CRIANDO AMBIENTE PARA CONTA BANCÁRIA E SEMEANDO CONTAS BANCÁRIAS (W)
 
 ```
-php artisan make:entity BanckAccount (yes/yes/no/yes)
+php artisan make:entity BankAccount (yes/yes/no/yes)
 
 php artisan make:seeder BankAccountsTableSeeder
 
@@ -575,4 +575,25 @@ http://facebook.github.io/flux/
 
 ```
 npm install vuex@~2.1.1 --save-dev
+```
+
+## COMEÇANDO COM PLANO DE CONTAS
+
+```
+php artisan make:migration create_category_expenses_table --table=category_expenses
+
+php artisan make:migration create_category_revenues_table --table=category_revenues
+
+php artisan make:entity CategoryExpense (yes/yes/no/yes)
+
+php artisan make:entity CategoryRevenue (yes/yes/no/yes)
+
+php artisan make:seeder CategoryExpensesTableSeeder
+
+php artisan make:seeder CategoryRevenuesTableSeeder
+
+composer dumpautoload
+
+php artisan migrate:refresh --seed
+
 ```
