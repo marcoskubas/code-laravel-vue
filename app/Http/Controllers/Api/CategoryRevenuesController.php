@@ -4,7 +4,6 @@ namespace CodeLaravelVue\Http\Controllers\Api;
 
 use CodeLaravelVue\Criteria\WithDepthCategoriesCriteria;
 use CodeLaravelVue\Http\Controllers\Controller;
-use CodeLaravelVue\Http\Requests;
 use CodeLaravelVue\Repositories\Interfaces\CategoryRevenueRepository;
 
 

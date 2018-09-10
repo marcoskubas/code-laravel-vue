@@ -1,8 +1,9 @@
 <template>
     <ul class="category-tree">
-        <li v-for="(index, o) in categories" class="category-child">
+        <li class="category-child" v-for="(index, o) in categories">
             <div class="valign-wrapper">
-                <a :data-activates="dropdownId(o)" href="javascript:void(0)" class="category-symbol {{ categoryIconColor(o) }}">
+                <a :data-activates="dropdownId(o)" href="#" class="category-symbol" :id="categorySymbolId(o)"
+                   :class="{'grey-text': !o.children.data.length > 0}">
                     <i class="material-icons">{{ categoryIcon(o) }}</i>
                 </a>
                 <ul :id="dropdownId(o)" class="dropdown-content">
@@ -13,57 +14,63 @@
                         <a href="#" @click.prevent="categoryEdit(o)">Editar</a>
                     </li>
                     <li>
-                        <a href="#" @click.prevent="categoryDelete(o)">Remover</a>
+                        <a href="#" @click.prevent="categoryDelete(o)">Excluir</a>
                     </li>
                 </ul>
-                <span class="valign">{{{ categoryText(o)}}}</span>
+                <span class="valign">{{{ categoryText(o) }}}</span>
             </div>
             <category-tree :categories="o.children.data" :parent="o"></category-tree>
         </li>
     </ul>
 </template>
-
-<script type="text/javascript">
-    export default {
-        name : 'category-tree',
+<script>
+    export default{
+        name: 'category-tree',
         props: {
-            categories : {
+            categories: {
                 type: Array,
                 required: true
             },
-            parent : {
-                type     : Object,
-                required : false,
+            parent: {
+                type: Object,
+                required: false,
                 'default'(){
                     return null;
                 }
-            },
+            }
+        },
+        ready(){
+            this.makeDropdown();
         },
         watch: {
             categories: {
                 handler(categories){
-                    $('.category-child div > a').dropdown({
-                        hover: true,
-                        inDuration: 300,
-                        outDuration: 400,
-                        belowOrigin: true
-                    });
+                    this.makeDropdown();
                 },
                 deep: true
             }
         },
         methods: {
             dropdownId(category){
-                return `category-tree-dropdown-${category.id}`;
+                return `category-tree-dropdown-${this._uid}-${category.id}`;
+            },
+            categorySymbolId(category){
+                return `category-symbol-${this._uid}-${category.id}`;
+            },
+            makeDropdown(){
+                $(`a[id^=category-symbol-${this._uid}-]`).unbind('mouseenter mouseleave');
+                $(`a[id^=category-symbol-${this._uid}-]`).dropdown({
+                    hover: true,
+                    inDuration: 300,
+                    outDuration: 400,
+                    belowOrigin: true
+                });
             },
             categoryText(category){
                 return category.children.data.length > 0 ? `<strong>${category.name}</strong>` : category.name;
             },
             categoryIcon(category){
                 return category.children.data.length > 0 ? 'folder' : 'label';
-            },
-            categoryIconColor(category){
-                return category.children.data.length > 0 ? 'green-text' : 'grey-text';
             },
             categoryNew(category){
                 this.$dispatch('category-new', category);

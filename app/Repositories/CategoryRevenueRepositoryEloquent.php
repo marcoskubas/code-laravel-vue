@@ -2,6 +2,8 @@
 
 namespace CodeLaravelVue\Repositories;
 
+use CodeLaravelVue\Presenters\CategoryPresenter;
+use CodeLaravelVue\Repositories\Traits\CategoryRepositoryTrait;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use CodeLaravelVue\Repositories\Interfaces\CategoryRevenueRepository;
@@ -14,6 +16,8 @@ use CodeLaravelVue\Models\CategoryRevenue;
  */
 class CategoryRevenueRepositoryEloquent extends BaseRepository implements CategoryRevenueRepository
 {
+    use CategoryRepositoryTrait;
+
     /**
      * Specify Model class name
      *
@@ -33,5 +37,10 @@ class CategoryRevenueRepositoryEloquent extends BaseRepository implements Catego
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    public function presenter()
+    {
+        return CategoryPresenter::class;
+    }
+
 }
