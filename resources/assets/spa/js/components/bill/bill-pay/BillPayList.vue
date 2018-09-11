@@ -161,7 +161,7 @@
         },
         events: {
             'pagination::changed'(page){
-                // store.dispatch('billPay/queryWithPagination',page);
+                store.dispatch('billPay/queryWithPagination',page);
             }
         }
     }

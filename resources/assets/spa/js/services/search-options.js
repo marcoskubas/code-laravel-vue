@@ -13,11 +13,11 @@ export default class{
         this.include = include;
     }
 
-    getPagination(){
+    get pagination(){
         return this._pagination;
     }
 
-    setPagination(value){
+    set pagination(value){
         if(value.current_page > 0) {
             value.current_page--;
         }

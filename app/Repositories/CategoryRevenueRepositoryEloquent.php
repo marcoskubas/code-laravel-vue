@@ -2,12 +2,13 @@
 
 namespace CodeLaravelVue\Repositories;
 
-use CodeLaravelVue\Presenters\CategoryPresenter;
 use CodeLaravelVue\Repositories\Traits\CategoryRepositoryTrait;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use CodeLaravelVue\Repositories\Interfaces\CategoryRevenueRepository;
 use CodeLaravelVue\Models\CategoryRevenue;
+use CodeLaravelVue\Presenters\CategoryPresenter;
+
 
 /**
  * Class CategoryRevenueRepositoryEloquent.

@@ -53,7 +53,7 @@ const actions = {
         return BankAccount.query(searchOptions.createOptions()).then((response) => {
             console.log(response.data.data);
             context.commit('set', response.data.data);
-            // context.commit('setPagination', response.data.meta.pagination);
+            context.commit('setPagination', response.data.meta.pagination);
         });
     },
     queryWithSortBy(context, key){

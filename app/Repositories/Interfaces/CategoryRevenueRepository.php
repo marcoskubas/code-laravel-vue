@@ -2,6 +2,7 @@
 
 namespace CodeLaravelVue\Repositories\Interfaces;
 
+use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
@@ -9,7 +10,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace CodeLaravelVue\Repositories\Interfaces;
  */
-interface CategoryRevenueRepository extends RepositoryInterface
+interface CategoryRevenueRepository extends RepositoryInterface, RepositoryCriteriaInterface
 {
     //
 }

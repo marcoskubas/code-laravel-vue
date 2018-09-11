@@ -4,6 +4,7 @@ namespace CodeLaravelVue\Http\Controllers\Api;
 
 use CodeLaravelVue\Criteria\FindRootCategoriesCriteria;
 use CodeLaravelVue\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\Log;
 
 
 trait CategoriesControllerTrait
@@ -16,6 +17,7 @@ trait CategoriesControllerTrait
     public function index()
     {
         $this->repository->pushCriteria(new FindRootCategoriesCriteria());
+//        Log::alert($this->repository->all());
         return $this->repository->all();
     }
 
