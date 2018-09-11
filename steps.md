@@ -597,3 +597,18 @@ composer dumpautoload
 php artisan migrate:refresh --seed
 
 ```
+
+# 18 - FORMULÁRIOS, VALIDAÇÕES E FILTROS
+
+## BACK-END - CONTA A PAGAR
+
+```
+php artisan make:entity BillPay (yes/yes/no/yes)
+
+php artisan make:seeder BillPaysTableSeeder
+
+composer dumpautoload
+
+php artisan migrate:refresh --seed
+
+```

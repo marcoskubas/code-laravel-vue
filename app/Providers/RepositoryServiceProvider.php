@@ -30,6 +30,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\CodeLaravelVue\Repositories\CategoryRepository::class, \CodeLaravelVue\Repositories\CategoryRepositoryEloquent::class);
         $this->app->bind(\CodeLaravelVue\Repositories\Interfaces\CategoryExpenseRepository::class, \CodeLaravelVue\Repositories\CategoryExpenseRepositoryEloquent::class);
         $this->app->bind(\CodeLaravelVue\Repositories\Interfaces\CategoryRevenueRepository::class, \CodeLaravelVue\Repositories\CategoryRevenueRepositoryEloquent::class);
+        $this->app->bind(\CodeLaravelVue\Repositories\Interfaces\BillPayRepository::class, \CodeLaravelVue\Repositories\BillPayRepositoryEloquent::class);
         //:end-bindings:
     }
 }

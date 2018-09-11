@@ -48,8 +48,18 @@ $factory->define(\CodeLaravelVue\Models\CategoryExpense::class, function (Faker\
         'name' => $faker->name
     ];
 });
+
 $factory->define(\CodeLaravelVue\Models\CategoryRevenue::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name
+    ];
+});
+
+$factory->define(\CodeLaravelVue\Models\BillPay::class, function (Faker\Generator $faker) {
+    return [
+        'date_due'  => $faker->date(),
+        'name'      => $faker->word,
+        'value'     => $faker->numberBetween(10, 1000),
+        'done'      => rand(0,1)
     ];
 });

@@ -105,7 +105,6 @@ export default () => {
     const actions = {
         query(context){
             return context.state.resource.query().then((response) => {
-                console.log(response.data);
                 context.commit('set', response.data.data);
                 return response;
             });
