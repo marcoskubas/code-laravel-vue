@@ -612,3 +612,13 @@ composer dumpautoload
 php artisan migrate:refresh --seed
 
 ```
+
+## RELACIONANDO CONTA BANCÁRIA E CATEGORIA COM CONTA A PAGAR
+
+```
+php artisan make:migration add_to_category_to_bill_pays
+
+php artisan make:migration add_bank_account_to_bill_pays
+
+php artisan migrate:refresh --seed
+```

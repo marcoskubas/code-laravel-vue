@@ -29,4 +29,8 @@ class BillPay extends Model implements Transformable
         'done'
     ];
 
+    public function category(){
+        return $this->belongsTo(CategoryExpense::class);
+    }
+
 }
